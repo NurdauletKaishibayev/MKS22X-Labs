@@ -65,15 +65,32 @@ public class Recursion {
   }
 
 
+  /*
+  *@param n any non-negative value you want to take the sqrt of
+  *@return the approximate sqrt of n within a tolerance of 0.001%
+  */
+  public static double sqrt(double n){
+    return sqrt(n, 1l);
+  }
+
+  public static double sqrt(double n, double guess) {
+    if ((n - Math.pow(guess, 2)) / n <= 0.00001) {
+      return guess;
+    } else {
+      return sqrt(n, ((n/guess + guess)/2));
+    }
+  }
+
 
 
   public static void main(String[] args) {
     //printAllWords(2);
     //char[] chars = {'a', 'b', 'z'};
     //printNoDoubleLetterWords(3, chars);
-    System.out.println(reverse("hello"));
-    System.out.println(reverse("YeY"));
-    System.out.println(reverse("BYE"));
-    System.out.println(reverse("racecar"));
+    // System.out.println(reverse("hello"));
+    // System.out.println(reverse("YeY"));
+    // System.out.println(reverse("BYE"));
+    // System.out.println(reverse("racecar"));
+
   }
 }
