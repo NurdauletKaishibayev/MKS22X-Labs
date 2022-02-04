@@ -84,6 +84,32 @@ public class Recursion {
     }
   }
 
+  /*
+  *@param length how long the words must be
+  *param word the variable to store the partial solution (should start at "")
+  *@return the number of words that have no adjacent matching letters using the letters a-z.
+  *Repetition allowed except when letters are adjacent.
+  */
+  public static long countNoDoubleLetterWords(int length,String word){
+    if (length == 0) {
+      return 0;
+    } else {
+      for (char c = 'a'; c <= 'z'; c++) {
+        if (word.length() == 0) {
+          return countNoDoubleLetterWords(length-1, word + c);
+        } else {
+          if (word.charAt(word.length()-1) != c){
+            return 1l + countNoDoubleLetterWords(length-1, word + c);
+          } else {
+            return countNoDoubleLetterWords(length-1, word + c);
+          }
+        }
+      }
+    }
+    return 5l;
+  }
+
+
 
 
   public static void main(String[] args) {
@@ -94,12 +120,13 @@ public class Recursion {
     // System.out.println(reverse("YeY"));
     // System.out.println(reverse("BYE"));
     // System.out.println(reverse("racecar"));
-    System.out.println(sqrt(100));
-    System.out.println(sqrt(0));
-    System.out.println(sqrt(1));
-    System.out.println(sqrt(10000));
-    System.out.println(sqrt(49));
-    System.out.println(sqrt(2));
-    System.out.println(sqrt(6));
+    // System.out.println(sqrt(100));
+    // System.out.println(sqrt(0));
+    // System.out.println(sqrt(1));
+    // System.out.println(sqrt(10000));
+    // System.out.println(sqrt(49));
+    // System.out.println(sqrt(2));
+    // System.out.println(sqrt(6));
+    System.out.println(countNoDoubleLetterWords(3, ""));
   }
 }
