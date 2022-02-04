@@ -70,11 +70,14 @@ public class Recursion {
   *@return the approximate sqrt of n within a tolerance of 0.001%
   */
   public static double sqrt(double n){
-    return sqrt(n, 1l);
+    return sqrt(n, (long)1);
   }
 
   public static double sqrt(double n, double guess) {
-    if ((n - Math.pow(guess, 2)) / n <= 0.00001) {
+    if (n == 0) {
+      return 0;
+    }
+    if (((Math.abs(n - Math.pow(guess, 2)) / n)) <= 0.00001) {
       return guess;
     } else {
       return sqrt(n, ((n/guess + guess)/2));
@@ -91,7 +94,12 @@ public class Recursion {
     // System.out.println(reverse("YeY"));
     // System.out.println(reverse("BYE"));
     // System.out.println(reverse("racecar"));
-    System.out.println()
-
+    System.out.println(sqrt(100));
+    System.out.println(sqrt(0));
+    System.out.println(sqrt(1));
+    System.out.println(sqrt(10000));
+    System.out.println(sqrt(49));
+    System.out.println(sqrt(2));
+    System.out.println(sqrt(6));
   }
 }
