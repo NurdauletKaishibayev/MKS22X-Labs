@@ -106,6 +106,22 @@ public class Recursion {
     }
   }
 
+  /*
+  *@param n any non-negative value
+  *@return the nth term of the fibonacci sequence. 0, 1, 1, 2, 3, 5 etc.
+  */
+  public static int fibIter(int n, int f1, int f2){
+    f1 = 1;
+    f2 = 0;
+    if (n == 0) {
+      return f2;
+    }
+    if (n == 1) {
+      return f1;
+    }
+    return fibIter(n, f1, f1+f2);
+  }
+
 
 
 
@@ -124,9 +140,14 @@ public class Recursion {
     // System.out.println(sqrt(49));
     // System.out.println(sqrt(2));
     // System.out.println(sqrt(6));
-    System.out.println(countNoDoubleLetterWords(1,""));
-    System.out.println(countNoDoubleLetterWords(2,""));
-    System.out.println(countNoDoubleLetterWords(3,""));
-    System.out.println(countNoDoubleLetterWords(4,""));
+    // System.out.println(countNoDoubleLetterWords(1,""));
+    // System.out.println(countNoDoubleLetterWords(2,""));
+    // System.out.println(countNoDoubleLetterWords(3,""));
+    // System.out.println(countNoDoubleLetterWords(4,""));
+    System.out.println(fibIter(0,1,0));
+    System.out.println(fibIter(1,1,0));
+    System.out.println(fibIter(2,1,0));
+    System.out.println(fibIter(3,1,0));
+
   }
 }
