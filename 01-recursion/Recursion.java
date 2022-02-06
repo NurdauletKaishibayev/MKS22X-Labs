@@ -124,5 +124,9 @@ public class Recursion {
     // System.out.println(sqrt(49));
     // System.out.println(sqrt(2));
     // System.out.println(sqrt(6));
+    System.out.println(countNoDoubleLetterWords(1,""));
+    System.out.println(countNoDoubleLetterWords(2,""));
+    System.out.println(countNoDoubleLetterWords(3,""));
+    System.out.println(countNoDoubleLetterWords(4,""));
   }
 }
