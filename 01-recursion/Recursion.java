@@ -111,16 +111,15 @@ public class Recursion {
   *@return the nth term of the fibonacci sequence. 0, 1, 1, 2, 3, 5 etc.
   */
   public static int fibIter(int n, int f1, int f2){
-    f1 = 1;
-    f2 = 0;
     if (n == 0) {
       return f2;
     }
     if (n == 1) {
       return f1;
     }
-    return fibIter(n, f1, f1+f2);
+    return fibIter(n-1, f2 + f1, f1);
   }
+
 
 
 
@@ -148,6 +147,8 @@ public class Recursion {
     System.out.println(fibIter(1,1,0));
     System.out.println(fibIter(2,1,0));
     System.out.println(fibIter(3,1,0));
-
+    System.out.println(fibIter(4,1,0));
+    System.out.println(fibIter(5,1,0));
+    System.out.println(fibIter(6,1,0));
   }
 }
