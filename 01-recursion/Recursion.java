@@ -91,31 +91,28 @@ public class Recursion {
   *Repetition allowed except when letters are adjacent.
   */
   public static long countNoDoubleLetterWords(int length,String word){
-    if (length == 0) {
-      return 0;
+    if (word.length() == length) {
+      return 1l;
     } else {
+      long counter = 0l;
       for (char c = 'a'; c <= 'z'; c++) {
         if (word.length() == 0) {
-          return countNoDoubleLetterWords(length-1, word + c);
-        } else {
-          if (word.charAt(word.length()-1) != c){
-            return 1l + countNoDoubleLetterWords(length-1, word + c);
-          } else {
-            return countNoDoubleLetterWords(length-1, word + c);
-          }
+          counter += countNoDoubleLetterWords(length, word + c);
+        } else if (word.charAt(word.length()-1) != c) {
+          counter += countNoDoubleLetterWords(length, word + c);
         }
       }
+      return counter;
     }
-    return 5l;
   }
 
 
 
 
   public static void main(String[] args) {
-    //printAllWords(2);
-    //char[] chars = {'a', 'b', 'z'};
-    //printNoDoubleLetterWords(3, chars);
+    // printAllWords(2);
+    // char[] chars = {'a', 'b', 'z'};
+    // printNoDoubleLetterWords(3, chars);
     // System.out.println(reverse("hello"));
     // System.out.println(reverse("YeY"));
     // System.out.println(reverse("BYE"));
@@ -127,6 +124,5 @@ public class Recursion {
     // System.out.println(sqrt(49));
     // System.out.println(sqrt(2));
     // System.out.println(sqrt(6));
-    System.out.println(countNoDoubleLetterWords(3, ""));
   }
 }
