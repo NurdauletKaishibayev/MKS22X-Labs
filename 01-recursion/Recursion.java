@@ -70,7 +70,7 @@ public class Recursion {
   *@return the approximate sqrt of n within a tolerance of 0.001%
   */
   public static double sqrt(double n){
-    return sqrt(n, (long)1);
+    return sqrt(n, (double)1);
   }
 
   public static double sqrt(double n, double guess) {
