@@ -53,13 +53,18 @@ public class RecursionClasswork{
     // System.out.println(groupSum(0,arr1,14));
     // System.out.println(groupSum(0,arr1,9));
     // System.out.println(groupSum(0,arr1,4));
+    //
+    // int[] arr2 = {2,2};
+    // int[] arr3 = {2,3};
+    // int[] arr4 = {5,2,3};
+    // System.out.println(splitArray(arr2));
+    // System.out.println(splitArray(arr3));
+    // System.out.println(splitArray(arr4));
 
-    int[] arr2 = {2,2};
-    int[] arr3 = {2,3};
-    int[] arr4 = {5,2,3};
-    System.out.println(splitArray(arr2));
-    System.out.println(splitArray(arr3));
-    System.out.println(splitArray(arr4));
+    int[] arr5 = {5,6,2};
+    System.out.println(groupSum6(0,arr5,8));
+    System.out.println(groupSum6(0,arr5,9));
+    System.out.println(groupSum6(0,arr5,7));
 
 
 
