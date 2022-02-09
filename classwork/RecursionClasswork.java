@@ -28,6 +28,22 @@ public class RecursionClasswork{
     }
   }
 
+  public static boolean groupSum6(int start, int[] nums, int target) {
+    if (target == 0) {
+      return true;
+    }
+    if (start == nums.length) {
+      return false;
+    } else {
+      if (nums[start] == 6) {
+       return groupSum6(start+1, nums, target - nums[start]);
+      }
+      return groupSum6(start+1, nums, target) ||
+      groupSum6(start+1, nums, target - nums[start]);
+    }
+  }
+
+
 
 
 
