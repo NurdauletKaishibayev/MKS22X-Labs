@@ -13,11 +13,19 @@ public class RecursionClasswork{
   }
 
   //splitArray
-  public boolean splitArray(int[] nums) {
-    return splitArray(0, nums);
+  public static boolean splitArray(int[] nums) {
+    return splitArray(0, nums, 0, 0);
   }
-  public boolean splitArray(int start, int[] nums) {
-
+  public static boolean splitArray(int start, int[] nums, int sum1, int sum2) {
+    if (start == nums.length) {
+      if (sum1 == sum2) {
+        return true;
+      }
+      return false;
+    } else {
+      return splitArray(start+1, nums, sum1 + nums[start], sum2) ||
+      splitArray(start+1, nums, sum1, sum2 + nums[start]);
+    }
   }
 
 
@@ -25,11 +33,20 @@ public class RecursionClasswork{
 
   public static void main(String[] args) {
     // int[] arr1 = {2,4,8};
-    //
     // System.out.println(groupSum(0,arr1,10));
     // System.out.println(groupSum(0,arr1,14));
     // System.out.println(groupSum(0,arr1,9));
     // System.out.println(groupSum(0,arr1,4));
+
+    int[] arr2 = {2,2};
+    int[] arr3 = {2,3};
+    int[] arr4 = {5,2,3};
+    System.out.println(splitArray(arr2));
+    System.out.println(splitArray(arr3));
+    System.out.println(splitArray(arr4));
+
+
+
 
   }
 }
