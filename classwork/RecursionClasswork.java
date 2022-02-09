@@ -7,17 +7,29 @@ public class RecursionClasswork{
     if (start == nums.length) {
       return false;
     } else {
-        return groupSum(start+1, nums, target) ||
-        groupSum(start+1, nums, target - nums[start]);
-      }
+      return groupSum(start+1, nums, target) ||
+      groupSum(start+1, nums, target - nums[start]);
     }
+  }
+
+  //splitArray
+  public boolean splitArray(int[] nums) {
+    return splitArray(0, nums);
+  }
+  public boolean splitArray(int start, int[] nums) {
+
+  }
+
+
+
 
   public static void main(String[] args) {
-    int[] arr1 = {2,4,8};
+    // int[] arr1 = {2,4,8};
+    //
+    // System.out.println(groupSum(0,arr1,10));
+    // System.out.println(groupSum(0,arr1,14));
+    // System.out.println(groupSum(0,arr1,9));
+    // System.out.println(groupSum(0,arr1,4));
 
-    System.out.println(groupSum(0,arr1,10));
-    System.out.println(groupSum(0,arr1,14));
-    System.out.println(groupSum(0,arr1,9));
-    System.out.println(groupSum(0,arr1,4));
   }
 }
