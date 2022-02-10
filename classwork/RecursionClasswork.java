@@ -28,6 +28,8 @@ public class RecursionClasswork{
     }
   }
 
+
+  // groupSum6
   public static boolean groupSum6(int start, int[] nums, int target) {
     if (start == nums.length) {
       return (target == 0);
@@ -40,6 +42,8 @@ public class RecursionClasswork{
     }
   }
 
+
+  // groupNoAdj
   public static boolean groupNoAdj(int start, int[] nums, int target) {
     if (start >= nums.length) {  // > symbol since we are increasing start by 2 in some cases, which can be over the length
       return (target == 0);
@@ -49,6 +53,8 @@ public class RecursionClasswork{
     }
   }
 
+
+  // splitOdd10
   public static boolean splitOdd10(int[] nums) {
     return splitOdd10(0, nums, 0, 0);
   }
@@ -65,6 +71,8 @@ public class RecursionClasswork{
     }
   }
 
+
+  // split53
   public static boolean split53(int[] nums) {
     return split53(0, nums, 0, 0);
   }
@@ -84,6 +92,24 @@ public class RecursionClasswork{
       }
       return split53(start+1, nums, sum1 + nums[start], sum2) ||
       split53(start+1, nums, sum1, sum2 + nums[start]);
+    }
+  }
+
+
+  // groupSum5
+  public static boolean groupSum5(int start, int[] nums, int target) {
+    if (start >= nums.length) {
+      return (target == 0);
+    } else {
+      if (nums[start] == 5) {
+        if (nums[start+1] == 1) {
+          return groupSum5(start+2, nums, target - nums[start]);
+        }
+       return groupSum5(start+1, nums, target - nums[start]);
+      }
+      return groupSum5(start+1, nums, target) ||
+      groupSum5(start+1, nums, target - nums[start]);
+    }
     }
   }
 
@@ -120,14 +146,21 @@ public class RecursionClasswork{
     // System.out.println(splitOdd10(arr7));
     // System.out.println(splitOdd10(arr8));
     // System.out.println(splitOdd10(arr9));
+    //
+    // int[] array1 = {1,1};
+    // int[] array2 = {1,1,1};
+    // int[] array3 = {2,4,2};
+    // System.out.println(split53(array1));
+    // System.out.println(split53(array2));
+    // System.out.println(split53(array3));
 
-    int[] array1 = {1,1};
-    int[] array2 = {1,1,1};
-    int[] array3 = {2,4,2};
-    System.out.println(split53(array1));
-    System.out.println(split53(array2));
-    System.out.println(split53(array3));
-
+    int[] array4 = {2, 5, 10, 4};
+    int[] array4Modified {2, 5, 1, 10, 4};
+    System.out.println(groupSum5(0, array4, 19));
+    System.out.println(groupSum5(0, array4, 17));
+    System.out.println(groupSum5(0, array4, 12));
+    System.out.println(groupSum5(0, array4Modified, 21));
+    System.out.println(groupSum5(0, array4Modified, 22));
 
 
 
