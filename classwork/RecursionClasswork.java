@@ -18,10 +18,7 @@ public class RecursionClasswork{
   }
   public static boolean splitArray(int start, int[] nums, int sum1, int sum2) {
     if (start == nums.length) {
-      if (sum1 == sum2) {
-        return true;
-      }
-      return false;
+      return (sum1 == sum2);
     } else {
       return splitArray(start+1, nums, sum1 + nums[start], sum2) ||
       splitArray(start+1, nums, sum1, sum2 + nums[start]);
@@ -112,8 +109,8 @@ public class RecursionClasswork{
     }
   }
 
-  // groupSumClump
 
+  // groupSumClump
   public static boolean groupSumClump(int start, int[] nums, int target) {
     if (start >= nums.length) {
       return (target == 0);
@@ -180,7 +177,7 @@ public class RecursionClasswork{
     // System.out.println(groupSum5(0, array4, 12));
     // System.out.println(groupSum5(0, array4Modified, 21));
     // System.out.println(groupSum5(0, array4Modified, 22));
-    // 
+    //
     // int[] array5 = {2,4,8};
     // int[] array6 = {1,2,4,8,1};
     // int[] array7 = {2,4,4,8};
