@@ -118,18 +118,18 @@ public class RecursionClasswork{
     if (start >= nums.length) {
       return (target == 0);
     } else {
-      if (nums[start] == nums[start+1]) {
-        int counter = 0;
-        for (int i = start; i < nums.length; i++) {
+      if (start < nums.length-1 && nums[start] == nums[start+1]) {
+        int counter = 1;
+        for (int i = start; i < nums.length-1; i++) {
           if (nums[i] == nums[i+1]) {
             counter++;
           }
         }
-        return groupSum5(start+counter, nums, target) ||
-        groupSum5(start+counter, nums, target - counter*nums[start]);
+        return groupSumClump(start + counter, nums, target) ||
+        groupSumClump(start + counter, nums, target - (counter * nums[start]));
       }
-      return groupSum5(start+1, nums, target) ||
-      groupSum5(start+1, nums, target - nums[start]);
+      return groupSumClump(start + 1, nums, target) ||
+      groupSumClump(start + 1, nums, target - nums[start]);
     }
   }
 
