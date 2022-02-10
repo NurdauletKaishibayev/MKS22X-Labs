@@ -1,3 +1,6 @@
+/**************************************
+* Challenge problem February 10, 2022 *
+**************************************/
 public class sentence {
   public static void permute(String[][]lists, String sentence, int current){
     if (current == lists.length) {
