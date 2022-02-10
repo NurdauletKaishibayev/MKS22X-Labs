@@ -49,6 +49,21 @@ public class RecursionClasswork{
     }
   }
 
+  public static boolean splitOdd10(int[] nums) {
+    return splitOdd10(0, nums, 0, 0);
+  }
+
+  public static boolean splitOdd10(int start, int[] nums, int sum1, int sum2) {
+    if (start == nums.length) {
+      if ((sum1 % 2 == 0 && sum2 % 10 == 0) || (sum2 % 2 == 0 && sum1 % 10 == 0)) {
+        return true;
+      }
+      return false;
+    } else {
+      return splitOdd10(start+1, nums, sum1 + nums[start], sum2) ||
+      splitOdd10(start+1, nums, sum1, sum2 + nums[start]);
+    }
+  }
 
 
 
@@ -71,11 +86,18 @@ public class RecursionClasswork{
     // System.out.println(groupSum6(0,arr5,8));
     // System.out.println(groupSum6(0,arr5,9));
     // System.out.println(groupSum6(0,arr5,7));
+    //
+    // int[] arr6 = {2,5,10,4};
+    // System.out.println(groupNoAdj(0,arr6,12));
+    // System.out.println(groupNoAdj(0,arr6,14));
+    // System.out.println(groupNoAdj(0,arr6,7));
 
-    int[] arr6 = {2,5,10,4};
-    System.out.println(groupNoAdj(0,arr6,12));
-    System.out.println(groupNoAdj(0,arr6,14));
-    System.out.println(groupNoAdj(0,arr6,7));
+    int[] arr7 = {5, 5, 5};
+    int[] arr8 = {5, 5, 6};
+    int[] arr9 = {5, 5, 6, 1};
+    System.out.prin
+
+
 
 
 
