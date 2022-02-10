@@ -76,8 +76,14 @@ public class RecursionClasswork{
       }
       return false;
     } else {
-      return splitArray(start+1, nums, sum1 + nums[start], sum2) ||
-      splitArray(start+1, nums, sum1, sum2 + nums[start]);
+      if (nums[start] % 3 == 0) {
+        return split53(start+1, nums, sum1, sum2 + nums[start]);
+      }
+      if (nums[start] % 5 == 0) {
+        return split53(start+1, nums, sum1 + nums[start], sum2);
+      }
+      return split53(start+1, nums, sum1 + nums[start], sum2) ||
+      split53(start+1, nums, sum1, sum2 + nums[start]);
     }
   }
 
@@ -114,6 +120,14 @@ public class RecursionClasswork{
     // System.out.println(splitOdd10(arr7));
     // System.out.println(splitOdd10(arr8));
     // System.out.println(splitOdd10(arr9));
+
+    int[] array1 = {1,1};
+    int[] array2 = {1,1,1};
+    int[] array3 = {2,4,2};
+    System.out.println(split53(array1));
+    System.out.println(split53(array2));
+    System.out.println(split53(array3));
+
 
 
 
