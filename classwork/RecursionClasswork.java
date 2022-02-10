@@ -55,7 +55,7 @@ public class RecursionClasswork{
 
   public static boolean splitOdd10(int start, int[] nums, int sum1, int sum2) {
     if (start == nums.length) {
-      if ((sum1 % 2 == 0 && sum2 % 10 == 0) || (sum2 % 2 == 0 && sum1 % 10 == 0)) {
+      if (((sum1 % 2 == 1) && (sum2 % 10 == 0)) || ((sum2 % 2 == 1) && (sum1 % 10 == 0))) {
         return true;
       }
       return false;
@@ -95,7 +95,9 @@ public class RecursionClasswork{
     int[] arr7 = {5, 5, 5};
     int[] arr8 = {5, 5, 6};
     int[] arr9 = {5, 5, 6, 1};
-    System.out.prin
+    System.out.println(splitOdd10(arr7));
+    System.out.println(splitOdd10(arr8));
+    System.out.println(splitOdd10(arr9));
 
 
 
