@@ -41,11 +41,8 @@ public class RecursionClasswork{
   }
 
   public static boolean groupNoAdj(int start, int[] nums, int target) {
-    if (target == 0) {
-      return true;
-    }
-    if (start == nums.length) {
-      return false;
+    if (start >= nums.length) {  // > symbol since we are increasing start by 2 in some cases, which can be over the length
+      return (target == 0);
     } else {
       return groupNoAdj(start+1, nums, target) ||
       groupNoAdj(start+2, nums, target - nums[start]);
