@@ -180,13 +180,13 @@ public class RecursionClasswork{
     // System.out.println(groupSum5(0, array4, 12));
     // System.out.println(groupSum5(0, array4Modified, 21));
     // System.out.println(groupSum5(0, array4Modified, 22));
-
-    int[] array5 = {2,4,8};
-    int[] array6 = {1,2,4,8,1};
-    int[] array7 = {2,4,4,8};
-    System.out.println(groupSumClump(0, array5, 10));
-    System.out.println(groupSumClump(0, array6, 14));
-    System.out.println(groupSumClump(0, array7, 14));
+    // 
+    // int[] array5 = {2,4,8};
+    // int[] array6 = {1,2,4,8,1};
+    // int[] array7 = {2,4,4,8};
+    // System.out.println(groupSumClump(0, array5, 10));
+    // System.out.println(groupSumClump(0, array6, 14));
+    // System.out.println(groupSumClump(0, array7, 14));
 
   }
 }
