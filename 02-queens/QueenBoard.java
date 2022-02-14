@@ -28,7 +28,7 @@ public class QueenBoard {
          if (board[i][j] == -1) {
            output += board[i][j] + " ";
          } else {
-           output += "_" + " ";
+           output += board[i][j] + " ";
          }
        }
        output += "\n";
@@ -42,9 +42,35 @@ public class QueenBoard {
    *@postcondition the board is only changed when the function returns true
    * in which case the queen is added and all it's threatened positions are incremented
    */
-   // private boolean addQueen(int r, int c){
-   //
-   // }
+   private boolean addQueen(int r, int c){
+     int size = board.length;
+     if (board[r][c] == 0) {
+       board[r][c] = -1;
+
+       // Add 1 downward
+       for (int i = r + 1; i < size; i++) {
+         board[i][c] += 1;
+       }
+
+       Add 1 Left horizontal
+       for (int i = r + 1; i < size; i++) {
+         for (int j = c - 1; j >= 0; j++) {
+           board[i][j] += 1;
+         }
+       }
+
+       // Add 1 Right horizontal
+       for (int i = r + 1; i < size; i++) {
+         for (int j = c + 1; j < size; j++) {
+           board[i][j] += 1;
+         }
+       }
+       
+       return true;
+     } else {
+       return false;
+     }
+   }
 
    /**Remove the queen that was added to r,c
    *@precondition r and c are valid indices of the board array and there is a queen at position r,c
@@ -75,5 +101,11 @@ public class QueenBoard {
    // public int countSolutions(){
    //
    // }
+   public static void main(String[] args) {
+     QueenBoard board = new QueenBoard(8);
+     System.out.println(board);
+     board.addQueen(2,2);
+     System.out.println(board);
+   }
 
 }
