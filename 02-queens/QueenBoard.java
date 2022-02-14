@@ -26,10 +26,11 @@ public class QueenBoard {
      for (int i = 0; i < size; i++) {
        for (int j = 0; j < size; j++) {
          if (board[i][j] == -1) {
-           output += "Q" + " ";
+           // output += "Q" + " ";
+           output += "-1" + " ";   // Used for testing
          } else {
-           // output += board[i][j] + " ";
-           output += "_" + " ";
+           output += board[i][j] + " ";  // Used for testing
+           // output += "_" + " ";
          }
        }
        output += "\n";
@@ -78,9 +79,31 @@ public class QueenBoard {
    *@postcondition the board is modified to remove that queen and all it's
    *threatened positions are decremented
    */
-   // private void removeQueen(int r, int c){
-   //
-   // }
+   private void removeQueen(int r, int c){
+     int size = board.length;
+     board[r][c] = 0;
+
+     // Add 1 downward
+     for (int i = r + 1; i < size; i++) {
+       board[i][c] += -1;
+     }
+
+     // Add 1 Left horizontal
+     for (int i = 1; i < size; i++) {
+       if (c-i >= 0 && r+i < size) {
+         board[r+i][c-i] += -1;
+       }
+     }
+
+     // Add 1 Right horizontal
+     for (int i = 1; i < size; i++) {
+       if (c+i < size && r+i < size) {
+         board[r+i][c+i] += -1;
+       }
+     }
+   }
+
+
 
    /**Find the first solution configuration possible for this size board. Start by placing
    *  the 1st queen in the top left corner, and each new queen in the next ROW. When backtracking
@@ -106,6 +129,9 @@ public class QueenBoard {
      QueenBoard board = new QueenBoard(8);
      System.out.println(board);
      board.addQueen(2,2);
+     System.out.println(board.addQueen(2,2));
+     System.out.println(board);
+     board.removeQueen(2,2);
      System.out.println(board);
    }
 
