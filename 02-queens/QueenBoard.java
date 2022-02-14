@@ -26,10 +26,10 @@ public class QueenBoard {
      for (int i = 0; i < size; i++) {
        for (int j = 0; j < size; j++) {
          if (board[i][j] == -1) {
-           output += board[i][j] + " ";
+           output += "Q" + " ";
          } else {
-           output += board[i][j] + " ";
-           // output += "_" + " ";
+           // output += board[i][j] + " ";
+           output += "_" + " ";
          }
        }
        output += "\n";
@@ -54,16 +54,16 @@ public class QueenBoard {
        }
 
        // Add 1 Left horizontal
-       for (int i = r + 1; i < size; i++) {
-         for (int j = c - 1; j >= 0; j--) {
-           board[i][j] += 1;
+       for (int i = 1; i < size; i++) {
+         if (c-i >= 0 && r+i < size) {
+           board[r+i][c-i] += 1;
          }
        }
 
        // Add 1 Right horizontal
-       for (int i = r + 1; i < size; i++) {
-         for (int j = c + 1; j < size; j++) {
-           board[i][j] += 1;
+       for (int i = 1; i < size; i++) {
+         if (c+i < size && r+i < size) {
+           board[r+i][c+i] += 1;
          }
        }
 
