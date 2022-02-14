@@ -26,11 +26,11 @@ public class QueenBoard {
      for (int i = 0; i < size; i++) {
        for (int j = 0; j < size; j++) {
          if (board[i][j] == -1) {
-           output += "Q" + " ";
-           // output += "-1" + " ";   // Used for testing
+           // output += "Q" + " ";
+           output += "-1" + " ";   // Used for testing
          } else {
-           // output += board[i][j] + " ";  // Used for testing
-           output += "_" + " ";
+           output += board[i][j] + " ";  // Used for testing
+           // output += "_" + " ";
          }
        }
        output += "\n";
@@ -51,18 +51,12 @@ public class QueenBoard {
 
        // Add 1 downward
        for (int i = r + 1; i < size; i++) {
-         if (board[i][c] == -1) {
-           return false;
-         }
          board[i][c] += 1;
        }
 
        // Add 1 Left horizontal
        for (int i = 1; i < size; i++) {
          if (c-i >= 0 && r+i < size) {
-           if (board[r+i][c-i] == -1) {
-             return false;
-           }
            board[r+i][c-i] += 1;
          }
        }
@@ -70,9 +64,6 @@ public class QueenBoard {
        // Add 1 Right horizontal
        for (int i = 1; i < size; i++) {
          if (c+i < size && r+i < size) {
-           if (board[r+i][c+i] == -1) {
-             return false;
-           }
            board[r+i][c+i] += 1;
          }
        }
@@ -166,9 +157,10 @@ public class QueenBoard {
      System.out.println(board);
      board.placeQueen(5,7,-1);
      System.out.println(board);
-     board.placeQueen(5,7,1);
-     board.placeQueen(4,3,1);
-     System.out.println(board);
+     System.out.println(board.placeQueen(6,6,-1));
+     // board.placeQueen(5,7,1);
+     // board.placeQueen(4,3,1);
+     // System.out.println(board);
 
    }
 
