@@ -29,6 +29,7 @@ public class QueenBoard {
            output += board[i][j] + " ";
          } else {
            output += board[i][j] + " ";
+           // output += "_" + " ";
          }
        }
        output += "\n";
@@ -52,9 +53,9 @@ public class QueenBoard {
          board[i][c] += 1;
        }
 
-       Add 1 Left horizontal
+       // Add 1 Left horizontal
        for (int i = r + 1; i < size; i++) {
-         for (int j = c - 1; j >= 0; j++) {
+         for (int j = c - 1; j >= 0; j--) {
            board[i][j] += 1;
          }
        }
@@ -65,7 +66,7 @@ public class QueenBoard {
            board[i][j] += 1;
          }
        }
-       
+
        return true;
      } else {
        return false;
