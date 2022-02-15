@@ -132,9 +132,22 @@ public class QueenBoard {
    *        returns true when the board is solveable, and leaves the board in a solved state
    *@throws IllegalStateException when the board starts with any non-zero value (e.g. you solved a 2nd time.)
    */
-   // public boolean solve(){
-   //
-   // }
+   public boolean solve(){
+     int size = board.length;
+     for (int i = 0; i < size; i++) {
+       for (int j = 0; j < size; j++) {
+         if (board[i][j] != 0) {
+           throw new IllegalStateException("The board must be empty!");
+         }
+       }
+     }
+     return solve(0);
+   }
+
+   public boolean solve(int row, int col) {
+     if ()
+   }
+
 
    /**Find all possible solutions to this size board.
    *@return the number of solutions found, and leaves the board filled with only 0's
@@ -143,21 +156,22 @@ public class QueenBoard {
    // public int countSolutions(){
    //
    // }
+
    public static void main(String[] args) {
-     QueenBoard board = new QueenBoard(8);
-     System.out.println(board);
-     board.placeQueen(2,2,-1);
-     System.out.println(board.placeQueen(2,2,-1));
-     System.out.println(board);
-     board.placeQueen(2,2,1);
-     System.out.println(board);
-     board.placeQueen(2,2,-1);
-     System.out.println(board);
-     board.placeQueen(4,3,-1);
-     System.out.println(board);
-     board.placeQueen(5,7,-1);
-     System.out.println(board);
-     System.out.println(board.placeQueen(6,6,-1));
+     // QueenBoard board = new QueenBoard(8);
+     // System.out.println(board);
+     // board.placeQueen(2,2,-1);
+     // System.out.println(board.placeQueen(2,2,-1));
+     // System.out.println(board);
+     // board.placeQueen(2,2,1);
+     // System.out.println(board);
+     // board.placeQueen(2,2,-1);
+     // System.out.println(board);
+     // board.placeQueen(4,3,-1);
+     // System.out.println(board);
+     // board.placeQueen(5,7,-1);
+     // System.out.println(board);
+     // System.out.println(board.placeQueen(6,6,-1));
      // board.placeQueen(5,7,1);
      // board.placeQueen(4,3,1);
      // System.out.println(board);
