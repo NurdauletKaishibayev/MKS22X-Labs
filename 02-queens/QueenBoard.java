@@ -51,7 +51,9 @@ public class QueenBoard {
 
        // Add 1 downward
        for (int i = r + 1; i < size; i++) {
-         board[i][c] += 1;
+         if (r+i < size) {
+           board[i][c] += 1;
+         }
        }
 
        // Add 1 Left horizontal
@@ -85,7 +87,9 @@ public class QueenBoard {
 
      // Add 1 downward
      for (int i = r + 1; i < size; i++) {
-       board[i][c] += -1;
+      if (r+i < size) {
+        board[i][c] += -1;
+      }
      }
 
      // Add 1 Left horizontal
@@ -144,8 +148,21 @@ public class QueenBoard {
      return solve(0);
    }
 
-   public boolean solve(int row, int col) {
-     if ()
+   public boolean solve(int row) {
+     if (row == board.length) {
+       return true;
+     } else {
+       for (int i = 0; i < board.length; i++) {
+         if (placeQueen(row,i,-1)) {
+           if (solve(row+1)) {
+             return true;
+           } else {
+             placeQueen(row,i,1);
+           }
+         }
+       }
+       return false;
+     }
    }
 
 
@@ -158,23 +175,8 @@ public class QueenBoard {
    // }
 
    public static void main(String[] args) {
-     // QueenBoard board = new QueenBoard(8);
-     // System.out.println(board);
-     // board.placeQueen(2,2,-1);
-     // System.out.println(board.placeQueen(2,2,-1));
-     // System.out.println(board);
-     // board.placeQueen(2,2,1);
-     // System.out.println(board);
-     // board.placeQueen(2,2,-1);
-     // System.out.println(board);
-     // board.placeQueen(4,3,-1);
-     // System.out.println(board);
-     // board.placeQueen(5,7,-1);
-     // System.out.println(board);
-     // System.out.println(board.placeQueen(6,6,-1));
-     // board.placeQueen(5,7,1);
-     // board.placeQueen(4,3,1);
-     // System.out.println(board);
+     QueenBoard board = new QueenBoard(8);
+
 
    }
 
