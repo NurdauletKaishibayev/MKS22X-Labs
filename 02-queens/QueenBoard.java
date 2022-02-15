@@ -26,11 +26,11 @@ public class QueenBoard {
      for (int i = 0; i < size; i++) {
        for (int j = 0; j < size; j++) {
          if (board[i][j] == -1) {
-           // output += "Q" + " ";
-           output += "-1" + " ";   // Used for testing
+           output += "Q" + " ";
+           // output += "-1" + " ";   // Used for testing
          } else {
-           output += board[i][j] + " ";  // Used for testing
-           // output += "_" + " ";
+           // output += board[i][j] + " ";  // Used for testing
+           output += "_" + " ";
          }
        }
        output += "\n";
@@ -50,9 +50,9 @@ public class QueenBoard {
        board[r][c] = -1;
 
        // Add 1 downward
-       for (int i = r + 1; i < size; i++) {
+       for (int i = 1; i < size; i++) {
          if (r+i < size) {
-           board[i][c] += 1;
+           board[r+i][c] += 1;
          }
        }
 
@@ -86,9 +86,9 @@ public class QueenBoard {
      board[r][c] = 0;
 
      // Add 1 downward
-     for (int i = r + 1; i < size; i++) {
+     for (int i = 1; i < size; i++) {
       if (r+i < size) {
-        board[i][c] += -1;
+        board[r+i][c] += -1;
       }
      }
 
@@ -154,6 +154,9 @@ public class QueenBoard {
      } else {
        for (int i = 0; i < board.length; i++) {
          if (placeQueen(row,i,-1)) {
+           // System.out.println(Text.go(1,1));
+           // System.out.println(this);//can change this to your debug print as well
+           // Text.wait(1500);//change the delay 1000 = 1 second
            if (solve(row+1)) {
              return true;
            } else {
@@ -174,10 +177,10 @@ public class QueenBoard {
    //
    // }
 
-   public static void main(String[] args) {
-     QueenBoard board = new QueenBoard(8);
-
-
-   }
+   // public static void main(String[] args) {
+   //   QueenBoard board = new QueenBoard(8);
+   //
+   //
+   // }
 
 }
