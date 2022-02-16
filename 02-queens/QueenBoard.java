@@ -1,5 +1,7 @@
 public class QueenBoard {
   private int[][] board;
+  private boolean animated = false;
+  private int delay = 1000;
 
   public QueenBoard(int size){
     board = new int[size][size];
@@ -8,6 +10,14 @@ public class QueenBoard {
         board[i][j] = 0;
       }
     }
+  }
+
+  public void setAnimate(boolean newValue) {
+    animated = newValue;
+  }
+
+  public void setDelay(int newValue) {
+    delay = newValue;
   }
    /**
    *@return The output string formatted as follows:
@@ -154,13 +164,20 @@ public class QueenBoard {
      } else {
        for (int i = 0; i < board.length; i++) {
          if (placeQueen(row,i,-1)) {
-           // System.out.println(Text.go(1,1));
-           // System.out.println(this);//can change this to your debug print as well
-           // Text.wait(1500);//change the delay 1000 = 1 second
+           if(animated){
+            System.out.println(Text.go(1,1));
+            System.out.println(this);//can modify here
+            Text.wait(delay);
+           }
            if (solve(row+1)) {
              return true;
            } else {
              placeQueen(row,i,1);
+             if(animated){
+              System.out.println(Text.go(1,1));
+              System.out.println(this);//can modify here
+              Text.wait(delay);
+             }
            }
          }
        }
@@ -177,10 +194,23 @@ public class QueenBoard {
    //
    // }
 
-   // public static void main(String[] args) {
-   //   QueenBoard board = new QueenBoard(8);
-   //
-   //
-   // }
+   public static void main(String[] args) {
+      int SIZE = 8;
+      if(args.length > 0){
+        SIZE = Integer.parseInt(args[0]);
+      }
+      QueenBoard b = new QueenBoard(SIZE);
+      if(args.length > 1){
+        b.setAnimate(true);
+        b.setDelay(Integer.parseInt(args[1]));
+      }
+      System.out.println(Text.CLEAR_SCREEN);
+      System.out.println(Text.HIDE_CURSOR);
+      System.out.println(Text.go(1,1));
+      b.solve();
+      System.out.println(Text.RESET);
+      System.out.println(Text.go(1,1));
+      System.out.println(b);
+   }
 
 }
