@@ -190,9 +190,33 @@ public class QueenBoard {
    *@return the number of solutions found, and leaves the board filled with only 0's
    *@throws IllegalStateException when the board starts with any non-zero value (e.g. you ran solve() before this method)
    */
-   // public int countSolutions(){
-   //
-   // }
+   public int countSolutions(){
+     int size = board.length;
+     for (int i = 0; i < size; i++) {
+      for (int j = 0; j < size; j++) {
+         if (board[i][j] != 0) {
+           throw new IllegalStateException("The board must be empty!");
+         }
+       }
+     }
+     return countSolutions(0);
+   }
+
+   // Called by the countSolutions wrapper method
+   public int countSolutions(int row) {
+     if (row == board.length) {
+       return 1;
+     } else {
+       int counter = 0;
+       for (int i = 0; i < board.length; i++) {
+         if (placeQueen(row,i,-1)) {
+           counter += countSolutions(row + 1);
+           placeQueen(row,i,1);
+           }
+         }
+        return counter;
+       }
+     }
 
    public static void main(String[] args) {
       int SIZE = 8;
