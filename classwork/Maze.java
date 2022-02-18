@@ -30,6 +30,7 @@ public class Maze {
       for (int j = 0; j < cols; j++) {
         out += maze[i][j];
       }
+      out += "\n";
     }
     return out;
   }
@@ -39,6 +40,7 @@ public class Maze {
       System.out.println(printMaze(readMaze("Maze1.txt")));
     }catch(FileNotFoundException e){
       System.out.println(e);
+      System.out.println("Error! No file found");
       System.exit(1);
     }
   }
