@@ -31,16 +31,98 @@ public class QueenBoard {
    *excludes the characters up to the comment(*)
    */
    public String toString(){
+     char queen = '\u265B';
      int size = board.length;
      String output = "";
+     int chessboard = 0;
      for (int i = 0; i < size; i++) {
        for (int j = 0; j < size; j++) {
-         if (board[i][j] == -1) {
-           output += "Q" + " ";
-           // output += "-1" + " ";   // Used for testing
-         } else {
-           // output += board[i][j] + " ";  // Used for testing
-           output += "_" + " ";
+         if (board.length%2 == 0) {
+           if (board[i][j] == -1) {
+             if (i%2 == 0) {
+               if (chessboard % 2 == 0) {
+                 output += Text.colorize(queen + " ", Text.RED, Text.WHITE + Text.BACKGROUND);
+                 chessboard++;
+               } else {
+                 output += Text.colorize(queen + " ", Text.RED, Text.BLACK + Text.BACKGROUND);
+                 chessboard++;
+               }
+
+             } else {
+               if (chessboard % 2 == 0) {
+               output += Text.colorize(queen + " ", Text.RED, Text.BLACK + Text.BACKGROUND);
+               chessboard++;
+             } else {
+               output += Text.colorize(queen + " ", Text.RED, Text.WHITE + Text.BACKGROUND);
+               chessboard++;
+              }
+            }
+
+             // output += "-1" + " ";   // Used for testing
+           } else {
+             // output += board[i][j] + " ";  // Used for testing
+             if (i%2 == 0) {
+               if (chessboard % 2 == 0) {
+                 output += Text.colorize("  " , Text.WHITE+Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               } else {
+                 output += Text.colorize("  " , Text.BLACK+Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               }
+             } else {
+               if (chessboard % 2 == 0) {
+                 output += Text.colorize("  " , Text.BLACK+Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               } else {
+                 output += Text.colorize("  " , Text.WHITE+Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               }
+             }
+           }
+
+
+         } else if (board.length % 2 == 1) {
+           if (board[i][j] == -1) {
+             if (i%2 == 0) {
+               if (chessboard % 2 == 0) {
+                 output += Text.colorize(queen + " ", Text.RED, Text.WHITE + Text.BACKGROUND);
+                 chessboard++;
+               } else {
+                 output += Text.colorize(queen + " ", Text.RED, Text.BLACK + Text.BACKGROUND);
+                 chessboard++;
+               }
+
+             } else {
+               if (chessboard % 2 == 0) {
+               output += Text.colorize(queen + " ", Text.RED, Text.WHITE+ Text.BACKGROUND);
+               chessboard++;
+             } else {
+               output += Text.colorize(queen + " ", Text.RED, Text.BLACK + Text.BACKGROUND);
+               chessboard++;
+              }
+            }
+
+             // output += "-1" + " ";   // Used for testing
+           } else {
+             // output += board[i][j] + " ";  // Used for testing
+             if (i%2 != 0) {
+               if (chessboard % 2 != 0) {
+                 output += Text.colorize("  " , Text.BLACK + Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               } else {
+                 output += Text.colorize("  " , Text.WHITE + Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               }
+             } else {
+               if (chessboard % 2 != 0) {
+                 output += Text.colorize("  " , Text.BLACK+Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               } else {
+                 output += Text.colorize("  " , Text.WHITE+Text.BACKGROUND, Text.BOLD);
+                 chessboard++;
+               }
+             }
+           }
          }
        }
        output += "\n";
