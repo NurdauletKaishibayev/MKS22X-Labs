@@ -87,7 +87,7 @@ public class Maze{
       clearTerminal();
     }
     //start solving at the location of the s.
-    return solve(startRow,startCol);
+    return solve(startRow,startCol, 0);
   }
 
   /*
@@ -104,7 +104,7 @@ public class Maze{
   All visited spots that were not part of the solution are changed to '.'
   All visited spots that are part of the solution are changed to '@'
   */
-  private int solve(int row, int col){ //you can add more parameters since this is private
+  private int solve(int row, int col, int out){ //you can add more parameters since this is private
     //automatic animation! You are welcome.
     if(animate){
       gotoTop();
@@ -113,10 +113,42 @@ public class Maze{
     }
     int rowLen = maze.length;
     int colLen = maze[0].length;
+
+    // Position of S
+    sFinder:
+    for (int i = 0; i < rowLen; i++) {
+      for (int j = 0; j < colLen; j++) {
+        if (maze[i][j] == 'S') {
+          row = i;
+          col = j;
+          break sFinder;
+        }
+      }
+    }
+
+    if (maze[row][col] == '#' || maze[row][col] == '.' || maze[row][col] == '@') {
+      return -1;
+    }
+
     if (maze[row][col] == 'E') {
-      return 1;
-    } else {
-      
+      return out;
+    }
+
+    else {
+      maze[row][col] = '@';
+      for (int i = -1; i < 2; i++) {
+        for (int j = -1; j < 2; j++) {
+          if (Math.abs(i) != Math.abs(j)) {
+            int var = solve(row + i, col + j, out + 1);
+            if (var != -1) {
+              return var;
+            }
+          }
+        }
+      }
+      maze[row][col] = '.';
+      return -1;
     }
   }
+
 }
