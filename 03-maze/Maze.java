@@ -147,8 +147,12 @@ public class Maze{
         }
       }
       maze[row][col] = '.';
+      if(animate){
+        gotoTop();
+        System.out.println(this);
+        wait(50);
+      }
       return -1;
     }
   }
-
 }
