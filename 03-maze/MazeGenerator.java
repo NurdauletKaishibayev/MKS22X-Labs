@@ -37,8 +37,6 @@ public class MazeGenerator {
     int colLen = maze[0].length;
     int counter = 0;
 
-    maze[startrow][startcol] = ' ';
-
     ArrayList<int[]> coords = new ArrayList<int[]>();
     int[] up = {0, -1};
     int[] down = {0, 1};
@@ -51,8 +49,17 @@ public class MazeGenerator {
     Collections.shuffle(coords);
     int x = coords.get(0)[0];
     int y = coords.get(0)[1];
+    System.out.println(coords.get(0)[0]);
+    System.out.println(coords.get(0)[1]);
+    System.out.println(coords.get(1)[0]);
+    System.out.println(coords.get(1)[1]);
+    System.out.println(coords.get(2)[0]);
+    System.out.println(coords.get(2)[1]);
+    System.out.println(coords.get(3)[0]);
+    System.out.println(coords.get(3)[1]);
+
     if (safe(maze, startrow+x, startcol+y)) {
-      coords.remove(0);
+      maze[startrow][startcol] = ' ';
       generate(maze, startrow+x, startcol+y, 1);
     }
   }
