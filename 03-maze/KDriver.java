@@ -1,5 +1,20 @@
 import java.io.*;
   public class KDriver{
+
+      // Print function;
+      public static String printMaze(char[][] maze){
+        int rows = maze.length;
+        int cols = maze[0].length;
+        String out = "";
+        for (int i = 0; i < rows; i++) {
+          for (int j = 0; j < cols; j++) {
+            out += maze[i][j];
+          }
+          out += "\n";
+        }
+        return out;
+      }
+
       public static void main(String[]args){
           if(args.length == 4){
             int rows = Integer.parseInt(args[0]);
@@ -16,6 +31,11 @@ import java.io.*;
 
             MazeGenerator.generate(maze,startrow,startcol);
             //Print the maze here.
+
+
+            System.out.println(printMaze(maze));
+
+
             System.out.println("MAZE!");//You need a way to show the maze without the array brackets etc.
           }else if(args.length == 1  || args.length == 2){
               try{
