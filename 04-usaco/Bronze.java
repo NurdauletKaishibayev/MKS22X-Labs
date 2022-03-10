@@ -6,28 +6,15 @@ public class Bronze {
 
 
   public static void stomp(int[][] grid, int R, int C, int D) {
-    int one = grid[R][C];
-    int two = grid[R+1][C];
-    int three = grid[R+2][C];
-    int four = grid[R][C+1];
-    int five = grid[R+1][C+1];
-    int six = grid[R+2][C+2];
-    int seven = grid[R][C+3];
-    int eight = grid[R+1][C+3];
-    int nine = grid[R+2][C+3];
-    int[] stomped = {one, two, three, four, five, six, seven, eight, nine};
 
 
     // Max value
-    int max = one;
+    int max =
     for (int i = 0; i < stomped.length; i++) {
       if (stomped[i] > max) {
         max = stomped[i];
       }
     }
-
-
-
 
   }
 
@@ -47,6 +34,11 @@ public class Bronze {
         board[i][j] = input.nextInt();
       }
     }
+    // Stomp will have a for loop that will be a counter until N
+    int counter = 0;
+    while (counter < numberOfStomps) {
+      
+    }
 
     // Calculates total aggregated depth
     for (int[] array : board) {
@@ -54,6 +46,10 @@ public class Bronze {
         sum += number;
       }
     }
-    // Stomp will have a for loop that will be a counter until N
+
+    return (sum * 72 * 72);
+
+
+
   }
 }
