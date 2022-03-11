@@ -93,11 +93,11 @@ public class Bronze {
 
   }
 
-  public static void main(String[] args) {
-    try {
-      System.out.println(solve("makelake.in"));
-    } catch (FileNotFoundException e) {
-        System.out.println("File not found");
-      }
-    }
+  // public static void main(String[] args) {
+  //   try {
+  //     System.out.println(solve("makelake.2.in"));
+  //   } catch (FileNotFoundException e) {
+  //       System.out.println("File not found");
+  //     }
+  //   }
   }
