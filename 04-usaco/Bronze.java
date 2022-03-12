@@ -33,71 +33,72 @@ public class Bronze {
   }
 
 
-  public static long solve(String filename) throws FileNotFoundException {
-    File file = new File(filename);
-    Scanner input = new Scanner(file);
-    int row = input.nextInt();
-    int col = input.nextInt();
-    int[][]board = new int[row][col];
-    int elevation = input.nextInt();
-    int numberOfStomps = input.nextInt();
-    int sum = 0;
+  public static long solve(String filename) {
+    try{
+      File file = new File(filename);
+      Scanner input = new Scanner(file);
+      int row = input.nextInt();
+      int col = input.nextInt();
+      int[][]board = new int[row][col];
+      int elevation = input.nextInt();
+      int numberOfStomps = input.nextInt();
+      int sum = 0;
 
-    for (int i = 0; i < row; i++) {
-      for (int j = 0; j < col; j++) {
-        board[i][j] = input.nextInt();
-      }
-    }
-    // String out = "";
-    // for (int i = 0; i < row; i++) {
-    //   for (int j = 0; j < col; j++) {
-    //     out += board[i][j] + " ";
-    //   }
-    //   out += "\n";
-    // }
-    // System.out.println(out);
-
-    // Stomp will have a for loop that will be a counter until N
-    int counter = 0;
-    while (counter < numberOfStomps) {
-      stomp(board, input.nextInt()-1, input.nextInt()-1, input.nextInt());
-      counter++;
-    }
-    // String out1 = "";
-    // for (int i = 0; i < row; i++) {
-    //   for (int j = 0; j < col; j++) {
-    //     out1 += board[i][j] + " ";
-    //   }
-    //   out1 += "\n";
-    // }
-    // System.out.println(out1);
-    // Calculates total aggregated depth
-
-    for (int i = 0; i < row; i++) {
-      for (int j = 0; j < col; j++) {
-        if (elevation - board[i][j] < 0) {
-          board[i][j] = 0;
-        } else {
-          board[i][j] = elevation - board[i][j];
+      for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+          board[i][j] = input.nextInt();
         }
       }
-    }
+      // String out = "";
+      // for (int i = 0; i < row; i++) {
+      //   for (int j = 0; j < col; j++) {
+      //     out += board[i][j] + " ";
+      //   }
+      //   out += "\n";
+      // }
+      // System.out.println(out);
 
-    for (int[] array : board) {
-      for (int number : array) {
-        sum += number;
+      // Stomp will have a for loop that will be a counter until N
+      int counter = 0;
+      while (counter < numberOfStomps) {
+        stomp(board, input.nextInt()-1, input.nextInt()-1, input.nextInt());
+        counter++;
       }
-    }
+      // String out1 = "";
+      // for (int i = 0; i < row; i++) {
+      //   for (int j = 0; j < col; j++) {
+      //     out1 += board[i][j] + " ";
+      //   }
+      //   out1 += "\n";
+      // }
+      // System.out.println(out1);
+      // Calculates total aggregated depth
 
-    return (sum * 72 * 72);
+      for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+          if (elevation - board[i][j] < 0) {
+            board[i][j] = 0;
+          } else {
+            board[i][j] = elevation - board[i][j];
+          }
+        }
+      }
+
+      for (int[] array : board) {
+        for (int number : array) {
+          sum += number;
+        }
+      }
+
+      return (sum * 72 * 72);
+    } catch (FileNotFoundException e) {
+      System.out.println("ERROR: File not found!");
+      return -1;
+    }
 
   }
 
   // public static void main(String[] args) {
-  //   try {
-  //     System.out.println(solve("makelake.2.in"));
-  //   } catch (FileNotFoundException e) {
-  //       System.out.println("File not found");
-  //     }
-  //   }
-  }
+  //   System.out.println(solve("makelake.1.in"));
+  // }
+}
