@@ -2,22 +2,113 @@ import java.io.*;
 import java.util.*;
 public class Silver {
 
+  public static void copyArray(int[][] grid, int [][] grid2) {
+    int rlen = grid.length;
+    int clen = grid[0].length;
+    for (int i = 0; i < rlen; i++) {
+      for (int j = 0; j < clen; j++) {
+        grid2[i][j] = grid[i][j];
+      }
+    }
+  }
 
   public static long calcWays(int[][] grid, int[][] gridCopy, int r1, int c1, int r2, int c2, int time) {
     int rlen = grid.length;
     int clen = grid[0].length;
-    int sum = 0;
-    grid[r1][c1] = 1;
+    int sum;
+    gridCopy[r1][c1] = 1;
     for (int z = 0; z < time; z++) {
       for (int i = 0; i < rlen; i++) {
         for (int j = 0; j < clen; j++) {
+          if (gridCopy[i][j] != -1) {
+            // Top Row
+            if (i == 0 ) {
+              // Top left corner
+              if (j == 0) {
+                sum = 0;
+                if (gridCopy[i+1][j] != -1) {
+                  sum += gridCopy[i+1][j];
+                }
+                if (gridCopy[i][j+1] != -1) {
+                  sum += gridCopy[i][j+1];
+                }
+                grid[i][j] = sum;
 
-          // Top Row
-          if (i == 0 ) {
+                // Top right corner
+              } else if (j == clen-1) {
+                sum = 0;
+                if (gridCopy[i+1][j] != -1) {
+                  sum += gridCopy[i+1][j];
+                }
+                if (gridCopy[i][j-1] != -1) {
+                  sum += gridCopy[i][j-1];
+                }
+                grid[i][j] = sum;
 
-            // Top left corner
-            if (j == 0) {
+
+                // Top row (excl. left right corner)
+              } else {
+                sum = 0;
+                if (gridCopy[i+1][j] != -1) {
+                  sum += gridCopy[i+1][j];
+                }
+                if (gridCopy[i][j+1] != -1) {
+                  sum += gridCopy[i][j+1];
+                }
+                if (gridCopy[i][j-1] != -1) {
+                  sum += gridCopy[i][j-1];
+                }
+                grid[i][j] = sum;
+
+              }
+
+
+            //Bottom Row
+            } else if (i == rlen-1) {
+              // Bottom left corner
+              if (j == 0) {
+                sum = 0;
+                if (gridCopy[i-1][j] != -1) {
+                  sum += gridCopy[i-1][j];
+                }
+                if (gridCopy[i][j+1] != -1) {
+                  sum += gridCopy[i][j+1];
+                }
+                grid[i][j] = sum;
+
+                // Bottom right corner
+              } else if (j == clen-1) {
+                sum = 0;
+                if (gridCopy[i-1][j] != -1) {
+                  sum += gridCopy[i-1][j];
+                }
+                if (gridCopy[i][j-1] != -1) {
+                  sum += gridCopy[i][j-1];
+                }
+                grid[i][j] = sum;
+
+                // Bottom row (excl. left right corner)
+              } else {
+                sum = 0;
+                if (gridCopy[i-1][j] != -1) {
+                  sum += gridCopy[i-1][j];
+                }
+                if (gridCopy[i][j+1] != -1) {
+                  sum += gridCopy[i][j+1];
+                }
+                if (gridCopy[i][j-1] != -1) {
+                  sum += gridCopy[i][j-1];
+                }
+                grid[i][j] = sum;
+              }
+            }
+
+            // LEFT COL
+            else if (j == 0) {
               sum = 0;
+              if (gridCopy[i-1][j] != -1) {
+                sum += gridCopy[i-1][j];
+              }
               if (gridCopy[i+1][j] != -1) {
                 sum += gridCopy[i+1][j];
               }
@@ -25,10 +116,14 @@ public class Silver {
                 sum += gridCopy[i][j+1];
               }
               grid[i][j] = sum;
+            }
 
-              // Top right corner
-            } else if (j == clen-1) {
+            // Right COL
+            else if (j == clen-1) {
               sum = 0;
+              if (gridCopy[i-1][j] != -1) {
+                sum += gridCopy[i-1][j];
+              }
               if (gridCopy[i+1][j] != -1) {
                 sum += gridCopy[i+1][j];
               }
@@ -36,118 +131,35 @@ public class Silver {
                 sum += gridCopy[i][j-1];
               }
               grid[i][j] = sum;
-
-              // Top row (excl. left right corner)
-            } else {
+            }
+            else {
               sum = 0;
+              if (gridCopy[i-1][j] != -1) {
+                sum += gridCopy[i-1][j];
+              }
               if (gridCopy[i+1][j] != -1) {
                 sum += gridCopy[i+1][j];
               }
-              if (gridCopy[i][j+1] != -1) {
-                sum += gridCopy[i][j+1];
-              }
               if (gridCopy[i][j-1] != -1) {
                 sum += gridCopy[i][j-1];
-              }
-              grid[i][j] = sum;
-            }
-
-
-          // Bottom Row
-          } else if (i == rlen-1) {
-            // Bottom left corner
-            if (j == 0) {
-              sum = 0;
-              if (gridCopy[i-1][j] != -1) {
-                sum += gridCopy[i-1][j];
               }
               if (gridCopy[i][j+1] != -1) {
                 sum += gridCopy[i][j+1];
               }
               grid[i][j] = sum;
-
-              // Bottom right corner
-            } else if (j == clen-1) {
-              sum = 0;
-              if (gridCopy[i-1][j] != -1) {
-                sum += gridCopy[i-1][j];
-              }
-              if (gridCopy[i][j-1] != -1) {
-                sum += gridCopy[i][j-1];
-              }
-              grid[i][j] = sum;
-
-              // Bottom row (excl. left right corner)
-            } else {
-              sum = 0;
-              if (gridCopy[i-1][j] != -1) {
-                sum += gridCopy[i-1][j];
-              }
-              if (gridCopy[i][j+1] != -1) {
-                sum += gridCopy[i][j+1];
-              }
-              if (gridCopy[i][j-1] != -1) {
-                sum += gridCopy[i][j-1];
-              }
-              grid[i][j] = sum;
             }
-          }
-
-          // LEFT COL
-          else if (j == 0) {
-            sum = 0;
-            if (gridCopy[i-1][j] != -1) {
-              sum += gridCopy[i-1][j];
-            }
-            if (gridCopy[i+1][j] != -1) {
-              sum += gridCopy[i+1][j];
-            }
-            if (gridCopy[i][j+1] != -1) {
-              sum += gridCopy[i][j+1];
-            }
-            grid[i][j] = sum;
-          }
-
-          // Right COL
-          else if (j == clen-1) {
-            sum = 0;
-            if (gridCopy[i-1][j] != -1) {
-              sum += gridCopy[i-1][j];
-            }
-            if (gridCopy[i+1][j] != -1) {
-              sum += gridCopy[i+1][j];
-            }
-            if (gridCopy[i][j-1] != -1) {
-              sum += gridCopy[i][j-1];
-            }
-            grid[i][j] = sum;
-          }
-          else {
-            sum = 0;
-            if (gridCopy[i-1][j] != -1) {
-              sum += gridCopy[i-1][j];
-            }
-            if (gridCopy[i+1][j] != -1) {
-              sum += gridCopy[i+1][j];
-            }
-            if (gridCopy[i][j-1] != -1) {
-              sum += gridCopy[i][j-1];
-            }
-            if (gridCopy[i][j+1] != -1) {
-              sum += gridCopy[i][j+1];
-            }
-            grid[i][j] = sum;
           }
         }
       }
-      // String out = "";
-      // for (int i = 0; i < rlen; i++) {
-      //   for (int j = 0; j < clen; j++) {
-      //     out += grid[i][j] + " ";
-      //   }
-      //   out += "\n";
-      // }
-      gridCopy = grid.clone();
+      copyArray(grid, gridCopy);
+      String out = "";
+      for (int a = 0; a < rlen; a++) {
+        for (int b = 0; b < clen; b++) {
+          out += gridCopy[a][b] + " ";
+        }
+        out += "\n";
+      }
+      System.out.println(out);
     }
 
 
@@ -160,7 +172,7 @@ public class Silver {
     // }
     // System.out.println(out2);
 
-    return (long)grid[r2][c2];
+    return (long)gridCopy[r2][c2];
   }
 
   public static long solve(String filename) {
