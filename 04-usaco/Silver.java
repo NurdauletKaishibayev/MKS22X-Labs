@@ -10,6 +10,7 @@ public class Silver {
       int col = input.nextInt();
       int time = input.nextInt();
       int[][]board = new int[row][col];
+      int[][]tempBoard = new int[row][col];
       String line;
 
       input.nextLine();
@@ -26,15 +27,20 @@ public class Silver {
           }
         }
       }
+      int R1 = input.nextInt()-1;
+      int C1 = input.nextInt()-1;
+      int R2 = input.nextInt()-1;
+      int C2 = input.nextInt()-1;
+  
 
-      String out = "";
-      for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-          out += board[i][j] + " ";
-        }
-        out += "\n";
-      }
-      System.out.println(out);
+      // String out = "";
+      // for (int i = 0; i < row; i++) {
+      //   for (int j = 0; j < col; j++) {
+      //     out += board[i][j] + " ";
+      //   }
+      //   out += "\n";
+      // }
+      // System.out.println(out);
 
 
 
@@ -43,7 +49,7 @@ public class Silver {
       return -1;
     }
 
-    return 1;
+    return (long)1;
   }
 
   public static void main(String[] args) {

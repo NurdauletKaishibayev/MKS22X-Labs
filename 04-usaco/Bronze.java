@@ -90,14 +90,14 @@ public class Bronze {
         }
       }
 
-      return (sum * 72 * 72);
+      return (long)(sum * 72 * 72);
     } catch (FileNotFoundException e) {
       System.out.println("ERROR: File not found!");
       return -1;
     }
 
   }
-
+  //
   // public static void main(String[] args) {
   //   System.out.println(solve("makelake.1.in"));
   // }
