@@ -1,0 +1,57 @@
+public class Preliminary {
+  /*Modify the array such that:
+  *1. A random index from start to end inclusive is chosen, the
+  * corresponding element is designated the pivot element.
+  *2. all elements in range that are smaller than the pivot element
+  * are placed before the pivot element.
+  *3. all elements in range that are larger than the pivot element are
+  *placed after the pivot element.
+  *4. Only the indices from start to end inclusive are considered in range
+  *@return the index of the final position of the pivot element.
+  */
+
+  public static int partition ( int [] data, int start, int end){
+    int randomIndex = (int)(Math.random()*(end-start+1) + start);
+    int pivot = data[randomIndex];
+    int index = start;
+    int index2 = end;
+    int val = data[index];
+    data[index] = pivot;
+    data[randomIndex] = val;
+    randomIndex = index;
+    index++;
+
+    // System.out.println(index);
+    // System.out.println(index2);
+    // System.out.println(pivot);
+    // System.out.println(randomIndex);
+    for (int i = start; i < end; i++) {
+      if (data[index] < pivot) {
+        int temp = data[index];
+        data[index] = pivot;
+        data[randomIndex] = temp;
+        index++;
+        randomIndex++;
+      }
+      else {
+        int temp = data[index];
+        data[index] = data[index2];
+        data[index2] = temp;
+        index2--;
+      }
+    }
+    // System.out.println(pivot);
+    return index-1;
+  }
+
+  public static void main(String[] args) {
+    int[] arr = {999,999,999,4,3,2,1,0,999,999,999};
+    System.out.println(partition(arr, 3,7));
+    String out = "";
+    for (int a = 0; a < arr.length; a++) {
+      out += arr[a] + ", ";
+    }
+    System.out.println(out);
+
+  }
+}
