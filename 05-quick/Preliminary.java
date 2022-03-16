@@ -1,3 +1,4 @@
+import java.util.*;
 public class Preliminary {
   /*Modify the array such that:
   *1. A random index from start to end inclusive is chosen, the
@@ -40,18 +41,45 @@ public class Preliminary {
         index2--;
       }
     }
-    // System.out.println(pivot);
     return index-1;
   }
 
-  public static void main(String[] args) {
-    int[] arr = {999,999,999,4,3,2,1,0,999,999,999};
-    System.out.println(partition(arr, 3,7));
-    String out = "";
-    for (int a = 0; a < arr.length; a++) {
-      out += arr[a] + ", ";
+  /*return the value that is the kth smallest value of the array.
+  *@param data must have a length > 0
+  *@param k is 0 to data.length-1 inclusive
+  *@postcondition The array may be modified. */
+  public static int quickselect(int[]data, int k){
+    int start = 0;
+    int end = data.length-1;
+    while (true) {
+      int p = partition(data, start, end);
+      if (k-1 > p) {
+        start++;
+      }
+      if (k-1 < p) {
+        end--;
+      }
+      if (k-1 == p) {
+        return p;
+      }
     }
-    System.out.println(out);
+  }
+
+  public static void main(String[] args) {
+    // int[] arr = {999,999,999,4,3,2,1,0,999,999,999};
+    // System.out.println(partition(arr, 3,7));
+    // String out = "";
+    // for (int a = 0; a < arr.length; a++) {
+    //   out += arr[a] + ", ";
+    // }
+    // System.out.println(out);
+    int[] ary = {2, 10, 15, 23, 0, 5};
+    System.out.println(Arrays.toString(ary));
+    //sorted(ary): {0, 2, 5, 10, 15, 23}
+    //This is to show what the returned value would be in all cases.
+    //DO NOT run all of these at once!
+    System.out.println(quickselect(ary ,1)); //would return 2
+    System.out.println(Arrays.toString(ary));
 
   }
 }
