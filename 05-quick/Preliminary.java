@@ -53,14 +53,14 @@ public class Preliminary {
     int end = data.length-1;
     while (true) {
       int p = partition(data, start, end);
-      if (k-1 > p) {
-        start++;
+      if (k > p) {
+        start = p+1;
       }
-      if (k-1 < p) {
-        end--;
+      if (k < p) {
+        end = p-1;
       }
-      if (k-1 == p) {
-        return p;
+      if (k == p) {
+        return data[k];
       }
     }
   }
@@ -78,7 +78,7 @@ public class Preliminary {
     //sorted(ary): {0, 2, 5, 10, 15, 23}
     //This is to show what the returned value would be in all cases.
     //DO NOT run all of these at once!
-    System.out.println(quickselect(ary ,1)); //would return 2
+    System.out.println(quickselect(ary ,4)); //would return 15
     System.out.println(Arrays.toString(ary));
 
   }
