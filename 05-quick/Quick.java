@@ -98,7 +98,7 @@ public class Quick {
     }
   }
 
-  public static void main(String[] args) {
+  // public static void main(String[] args) {
     // int[] arr = {999,999,999,4,3,2,1,0,999,999,999};
     // System.out.println(partition(arr, 3,7));
     // String out = "";
@@ -106,17 +106,34 @@ public class Quick {
     //   out += arr[a] + ", ";
     // }//
     // System.out.println(out);
-    int[] ary = {2, 10, 15, 23, 0, 5};
-    int[] ary3 = {1,6,5,6,7,9,6,3,8,6};
+    // int[] ary = {2, 10, 15, 23, 0, 5};
+    // int[] ary3 = {1,6,5,6,7,9,6,3,8,6};
+    // int[] sorted = {1,2,3,4,5,6,7,8,9,10};
+    // int[] reverse = {10,9,8,7,6,5,4,3,2,1};
+    //
+    // quicksort(sorted);
+    // System.out.println(Arrays.toString(sorted));
+    //
+    // quicksort(reverse);
+    // System.out.println(Arrays.toString(reverse));
+
+    //
+    // int[] random = new int[1000000];
+    // Random rd = new Random();
+    // for (int i = 0; i < random.length; i++) {
+    //   random[i] = rd.nextInt();
+    // }
+    // quicksort(random);
+    // System.out.println(Arrays.toString(random));
     // System.out.println(Arrays.toString(ary));
     //sorted(ary): {0, 2, 5, 10, 15, 23}
     //This is to show what the returned value would be in all cases.
     //DO NOT run all of these at once!
     // System.out.println(quickselect(ary3 ,4)); //would return 15
     // System.out.println(Arrays.toString(ary));
-    quicksort(ary);
-    System.out.println(Arrays.toString(ary));
-    quicksort(ary3);
-    System.out.println(Arrays.toString(ary3));
-  }
+    // quicksort(ary);
+    // System.out.println(Arrays.toString(ary));
+    // quicksort(ary3);
+    // System.out.println(Arrays.toString(ary3));
+  // }
 }
