@@ -21,25 +21,45 @@ public class Quick {
     data[randomIndex] = val;
     randomIndex = index;
     index++;
+    int counter = 0;
 
     // System.out.println(index);
     // System.out.println(index2);
     // System.out.println(pivot);
     // System.out.println(randomIndex);
     for (int i = start; i < end; i++) {
-      if (data[index] < pivot) {
-        int temp = data[index];
-        data[index] = pivot;
-        data[randomIndex] = temp;
-        index++;
-        randomIndex++;
+      if (counter % 2 == 0) {
+        if (data[index] < pivot) {
+          int temp = data[index];
+          data[index] = pivot;
+          data[randomIndex] = temp;
+          index++;
+          randomIndex++;
+        }
+        else {
+          int temp = data[index];
+          data[index] = data[index2];
+          data[index2] = temp;
+          index2--;
+        }
+        counter++;
+      } else {
+        if (data[index] <= pivot) {
+          int temp = data[index];
+          data[index] = pivot;
+          data[randomIndex] = temp;
+          index++;
+          randomIndex++;
+        }
+        else {
+          int temp = data[index];
+          data[index] = data[index2];
+          data[index2] = temp;
+          index2--;
+        }
+        counter++;
       }
-      else {
-        int temp = data[index];
-        data[index] = data[index2];
-        data[index2] = temp;
-        index2--;
-      }
+
     }
     return index-1;
   }
@@ -65,6 +85,19 @@ public class Quick {
     }
   }
 
+  /* Quicksort method is wrapper*/
+  public static void quicksort(int[]data){
+    quicksort(data,0,data.length-1);
+  }
+
+  public static void quicksort(int[]data,int lo,int hi){
+    if (lo < hi) {
+      int p = partition(data, lo, hi);
+      quicksort(data, lo, p-1);
+      quicksort(data, p+1, hi);
+    }
+  }
+
   public static void main(String[] args) {
     // int[] arr = {999,999,999,4,3,2,1,0,999,999,999};
     // System.out.println(partition(arr, 3,7));
@@ -74,12 +107,16 @@ public class Quick {
     // }
     // System.out.println(out);
     int[] ary = {2, 10, 15, 23, 0, 5};
-    System.out.println(Arrays.toString(ary));
+    int[] ary3 = {1,6,5,6,7,9,6,3,8,6};
+    // System.out.println(Arrays.toString(ary));
     //sorted(ary): {0, 2, 5, 10, 15, 23}
     //This is to show what the returned value would be in all cases.
     //DO NOT run all of these at once!
-    System.out.println(quickselect(ary ,4)); //would return 15
+    // System.out.println(quickselect(ary3 ,4)); //would return 15
+    // System.out.println(Arrays.toString(ary));
+    quicksort(ary);
     System.out.println(Arrays.toString(ary));
-
+    quicksort(ary3);
+    System.out.println(Arrays.toString(ary3));
   }
 }
