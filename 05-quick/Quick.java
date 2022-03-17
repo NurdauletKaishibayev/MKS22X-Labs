@@ -104,7 +104,7 @@ public class Quick {
     // String out = "";
     // for (int a = 0; a < arr.length; a++) {
     //   out += arr[a] + ", ";
-    // }
+    // }//
     // System.out.println(out);
     int[] ary = {2, 10, 15, 23, 0, 5};
     int[] ary3 = {1,6,5,6,7,9,6,3,8,6};
