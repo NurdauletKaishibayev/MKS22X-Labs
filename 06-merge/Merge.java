@@ -82,18 +82,18 @@ public class Merge {
 
 
 
-  public static void main(String[] args) {
-    int[] test = {1,5,6,8};
-    int[] test2 = {5,10,24};
-    int[] arr = {1, 6, 2, 3, 8, 10, 9, 100, 78, 0, -5, -123, 56, 123};
-    int[] sorted = {1,2,3,4,5,6,7,8,9,10,11,122};
-    int[] revSorted = {122,11,10,9,8,7,6,5,4,3,2,1,-10};
-    System.out.println(Arrays.toString(merge(test, test2)));
-    mergesort(arr);
-    mergesort(sorted);
-    mergesort(revSorted);
-    System.out.println(Arrays.toString(arr));
-    System.out.println(Arrays.toString(sorted));
-    System.out.println(Arrays.toString(revSorted));
-  }
+  // public static void main(String[] args) {
+  //   int[] test = {1,5,6,8};
+  //   int[] test2 = {5,10,24};
+  //   int[] arr = {1, 6, 2, 3, 8, 10, 9, 100, 78, 0, -5, -123, 56, 123};
+  //   int[] sorted = {1,2,3,4,5,6,7,8,9,10,11,122};
+  //   int[] revSorted = {122,11,10,9,8,7,6,5,4,3,2,1,-10};
+  //   System.out.println(Arrays.toString(merge(test, test2)));
+  //   mergesort(arr);
+  //   mergesort(sorted);
+  //   mergesort(revSorted);
+  //   System.out.println(Arrays.toString(arr));
+  //   System.out.println(Arrays.toString(sorted));
+  //   System.out.println(Arrays.toString(revSorted));
+  // }
 }
