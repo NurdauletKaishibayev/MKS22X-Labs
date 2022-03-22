@@ -89,8 +89,11 @@ public class Merge {
     int[] sorted = {1,2,3,4,5,6,7,8,9,10,11,122};
     int[] revSorted = {122,11,10,9,8,7,6,5,4,3,2,1,-10};
     System.out.println(Arrays.toString(merge(test, test2)));
-    System.out.println(Arrays.toString(mergesortH(arr)));
-    System.out.println(Arrays.toString(mergesortH(sorted)));
-    System.out.println(Arrays.toString(mergesortH(revSorted)));
+    mergesort(arr);
+    mergesort(sorted);
+    mergesort(revSorted);
+    System.out.println(Arrays.toString(arr));
+    System.out.println(Arrays.toString(sorted));
+    System.out.println(Arrays.toString(revSorted));
   }
 }
