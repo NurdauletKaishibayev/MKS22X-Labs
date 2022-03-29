@@ -14,14 +14,14 @@ public class MyDeque<E>{
     @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[initialCapacity];
     data = d;
-    start = data.length/2;
-    end = data.length/2;
+    start = 0;
+    end = 0;
     size = 0;
   }
 
-  // call when start = length
+  // call when size = length of the array
   private void resize() {
-
+    data = Arrays.copyOf(data, (data.length * 2)+1 );
   }
 
   public int size(){
@@ -32,26 +32,26 @@ public class MyDeque<E>{
   public String toString(){
     String out = "[";
     if (end < start) {
-      for (int i = start; i < data.length; i++) {
+      for (int i = start+1; i < data.length; i++) {
         out += data[i] + ", ";
       }
       for (int j = 0; j <= end; j++) {
         if (j == end) {
-          out += data[j] + "]";
+          out += data[j];
         } else {
           out += data[j] + ", ";
         }
       }
-      return out;
+      return out + "]";
     } else {
-      for (int i = start; i <= end; i++) {
+      for (int i = start+1; i <= end; i++) {
         if (i == end) {
-          out += data[i] + "]";
+          out += data[i];
         } else {
           out += data[i] + ", ";
         }
       }
-      return out;
+      return out + "]";
     }
   }
 
@@ -62,58 +62,108 @@ public class MyDeque<E>{
     for (int i = 0; i < data.length; i++) {
       if (i == data.length-1) {
         if (data[i] == null) {
-          out += "null]";
+          out += "null";
         } else {
-          out += data[i] + "]";
+          out += data[i];
         }
       } else {
         if (data[i] == null) {
           out += "null, ";
         } else {
-          out += data[i] + "]";
+          out += data[i] + ", ";
         }
       }
     }
-    return out;
+    return out + "]";
   }
 
-  public void addFirst(E element) throws NullPointerException{
 
+  public void addFirst(E element) {
+    if (element == null) {
+      throw new NullPointerException("Cannot add null!");
+    }
+
+    if (size() == 0) {
+      start = data.length/2;
+      end = data.length/2;
+    }
+
+    if (size() == data.length) {
+      resize();
+    }
+    data[start] = element;
+    size++;
+    start--;
   }
 
-  public void addLast(E element) throws NullPointerException{
+  public void addLast(E element) {
+    if (element == null) {
+      throw new NullPointerException("Cannot add null!");
+    }
 
+    if (size() == 0) {
+      start = data.length/2;
+      end = data.length/2;
+    }
+
+    if (size() == data.length) {
+      resize();
+    }
+
+    if (end == data.length-1) {
+      end = 0;
+      data[end] = element;
+      size++;
+    } else {
+      data[end+1] = element;
+      size++;
+      end++;
+    }
   }
 
   // public E removeFirst() {
   //   if (size == 0) {
-  //     throw new NoSuchElementException();
+  //     throw new NoSuchElementException("Array is Empty!");
   //   }
   //
   // }
   //
   // public E removeLast() {
   //   if (size == 0) {
-  //     throw new NoSuchElementException();
+  //     throw new NoSuchElementException("Array is Empty!");
   //   }
   // }
 
   public E getFirst() {
-    if (size == 0) {
-      throw new NoSuchElementException();
+    if (size() == 0) {
+      throw new NoSuchElementException("Array is Empty!");
     }
-    return data[start];
+    return data[start+1];
   }
 
   public E getLast() {
-    if (size == 0) {
-      throw new NoSuchElementException();
+    if (size() == 0) {
+      throw new NoSuchElementException("Array is Empty!");
     }
     return data[end];
   }
 
   public static void main(String[] args) {
     MyDeque<Integer> deque = new MyDeque<Integer>();
+    deque.addFirst(2);
+    deque.addFirst(3);
+    deque.addFirst(4);
+    deque.addFirst(5);
+    deque.addLast(10);
+    deque.addLast(11);
+    deque.addLast(12);
+    deque.addLast(13);
+    deque.addLast(14);
+    deque.addFirst(15);
+
+    System.out.println(deque.getFirst());
+    System.out.println(deque.getLast());
+    System.out.println(deque.size());
     System.out.println(deque);
     System.out.println(deque.toStringDebug());
   }
