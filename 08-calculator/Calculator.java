@@ -56,6 +56,13 @@ public class Calculator{
               stack.push(a/b);
             }
 
+            // remainder
+            else if (op.equals("%")) {
+              double b = stack.pop();
+              double a = stack.pop();
+              stack.push(a%b);
+            }
+
           }
         }
 
@@ -78,6 +85,9 @@ public class Calculator{
       //   System.out.println(eval("5 9 -")); // Should be -4.0
       //   // System.out.println(eval("5 9 9 9 - +")); // Too Many
       //   // System.out.println(eval("5 - 3 2 + 2")); // Not Enough
-      //
+      //   System.out.println(eval("9 5 %")); // Should be 4
+      //   System.out.println(eval("10 5 %")); // Should be 0
+      //   System.out.println(eval("5 5 %")); // Should be 0
+      //   System.out.println(eval("5 9 %")); // Should be 5
       // }
     }
