@@ -68,16 +68,16 @@ public class Calculator{
         return stack.pop();
       }
 
-      public static void main(String[] args) {
-        System.out.println(eval("1 3 +")); // Should be 4.0
-        System.out.println(eval("10 2.0 +")); // Should be 12.0
-        System.out.println(eval("11 3 - 4 + 2.5 *")); // Should be 30.0
-        System.out.println(eval("8 2 + 99 9 - * 2 + 9 -")); // Should be 893.0
-        System.out.println(eval("1 2 3 4 5 + * - -")); // Should be 26.0
-        System.out.println(eval("5 9 + 2 * 6 5 * +")); // Should be 58.0
-        System.out.println(eval("5 9 -")); // Should be -4.0
-        // System.out.println(eval("5 9 9 9 - +")); // Too Many
-        // System.out.println(eval("5 - 3 2 + 2")); // Not Enough
-
-      }
+      // public static void main(String[] args) {
+      //   System.out.println(eval("1 3 +")); // Should be 4.0
+      //   System.out.println(eval("10 2.0 +")); // Should be 12.0
+      //   System.out.println(eval("11 3 - 4 + 2.5 *")); // Should be 30.0
+      //   System.out.println(eval("8 2 + 99 9 - * 2 + 9 -")); // Should be 893.0
+      //   System.out.println(eval("1 2 3 4 5 + * - -")); // Should be 26.0
+      //   System.out.println(eval("5 9 + 2 * 6 5 * +")); // Should be 58.0
+      //   System.out.println(eval("5 9 -")); // Should be -4.0
+      //   // System.out.println(eval("5 9 9 9 - +")); // Too Many
+      //   // System.out.println(eval("5 - 3 2 + 2")); // Not Enough
+      //
+      // }
     }
