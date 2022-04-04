@@ -72,6 +72,18 @@ public class MyDeque<E>{
        return "[]";
      }
 
+     if (start == 0 && end == 0) {
+       String out = "[";
+       for (int i = start; i < data.length; i++) {
+         if (i == data.length-1) {
+           out += data[i];
+         } else {
+           out += data[i] + ", ";
+         }
+       }
+       return out+"]";
+     }
+
        String out = "[";
        if (end < start) {
          for (int i = start; i < data.length; i++) {
@@ -200,10 +212,16 @@ public class MyDeque<E>{
   }
 
   public E removeFirst() {
-    if (size == 0) {
+    if (size() == 0) {
       throw new NoSuchElementException("Array is Empty!");
     }
     E elm = getFirst();
+    if (start == data.length-1) {
+      data[start] = null;
+      start = 0;
+      size--;
+      return elm;
+    }
     data[start] = null;
     start++;
     size--;
@@ -211,14 +229,13 @@ public class MyDeque<E>{
   }
 
   public E removeLast() {
-    if (size == 0) {
+    if (size() == 0) {
       throw new NoSuchElementException("Array is Empty!");
     }
     E elm = getLast();
     if (end == 0) {
       end = data.length-1;
       data[end] = null;
-      end--;
       size--;
       return elm;
     } else {
@@ -255,47 +272,19 @@ public class MyDeque<E>{
     System.out.println(end);
   }
 
-  // public static void main(String[] args) {
-  //   MyDeque<Integer> deque = new MyDeque<Integer>();
-  //   deque.addFirst(2);
-  //   deque.addFirst(3);
-  //   // // deque.addFirst(4);
-  //   // // deque.addFirst(5);
-  //   // // deque.addFirst(6);
-  //   // // deque.addFirst(0101);
-  //   // // deque.addFirst(0);
-  //   // // deque.addLast(888);
-  //   // // deque.addLast(11);
-  //   deque.addLast(1);
-  //   deque.addLast(4);
-  //   deque.addLast(5);
-  //   deque.addLast(6);
-  //   deque.addLast(7);
-  //   deque.addLast(8);
-  //   deque.addLast(9);
-  //   // deque.addLast(10);
-  //   // deque.addLast(12);
-  //   // deque.addLast(15);
-  //   // deque.addFirst(16);
-  //   // deque.removeLast();
-  //   // deque.removeLast();
-  //   // deque.removeLast();
-  //   // deque.removeFirst();
-  //
-  //
-  //
-  //
-  //
-  //
-  //   System.out.println(deque.getFirst());
-  //   System.out.println(deque.getLast());
-  //   System.out.println(deque.size());
-  //   System.out.println(deque);
-  //   System.out.println(deque.toStringDebug());
-  //
-  //   System.out.println("-=-=-=-= START =-=-=-=-");
-  //   deque.start();
-  //   System.out.println("-=-=-=-= END =-=-=-=-");
-  //   deque.end();
-  // }
+  public static void main(String[] args) {
+    MyDeque<Integer> deque = new MyDeque<Integer>();
+
+
+    System.out.println("First: " + deque.getFirst());
+    System.out.println("Last: " + deque.getLast());
+    System.out.println("Size: " + deque.size());
+    // System.out.println(deque);
+    // System.out.println(deque.toStringDebug());
+
+    System.out.println("-=-=-=-= START =-=-=-=-");
+    deque.start();
+    System.out.println("-=-=-=-= END =-=-=-=-");
+    deque.end();
+  }
 }
