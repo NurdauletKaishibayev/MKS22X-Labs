@@ -264,27 +264,27 @@ public class MyDeque<E>{
     }
   }
 
-  public void start() {
-    System.out.println(start);
-  }
+  // public void start() {
+  //   System.out.println(start);
+  // }
+  //
+  // public void end() {
+  //   System.out.println(end);
+  // }
 
-  public void end() {
-    System.out.println(end);
-  }
-
-  public static void main(String[] args) {
-    MyDeque<Integer> deque = new MyDeque<Integer>();
-
-
-    System.out.println("First: " + deque.getFirst());
-    System.out.println("Last: " + deque.getLast());
-    System.out.println("Size: " + deque.size());
-    // System.out.println(deque);
-    // System.out.println(deque.toStringDebug());
-
-    System.out.println("-=-=-=-= START =-=-=-=-");
-    deque.start();
-    System.out.println("-=-=-=-= END =-=-=-=-");
-    deque.end();
-  }
+  // public static void main(String[] args) {
+  //   MyDeque<Integer> deque = new MyDeque<Integer>();
+  //
+  //
+  //   System.out.println("First: " + deque.getFirst());
+  //   System.out.println("Last: " + deque.getLast());
+  //   System.out.println("Size: " + deque.size());
+  //   // System.out.println(deque);
+  //   // System.out.println(deque.toStringDebug());
+  //
+  //   System.out.println("-=-=-=-= START =-=-=-=-");
+  //   deque.start();
+  //   System.out.println("-=-=-=-= END =-=-=-=-");
+  //   deque.end();
+  // }
 }
