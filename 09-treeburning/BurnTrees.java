@@ -88,6 +88,16 @@ public class BurnTrees{
     }
   }
 
+  public static double averageOfNRuns(int n, int size, double density) {
+
+    // Gets average of N runs for SIZE * SIZE array with DENSITY
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+      BurnTrees test = new BurnTrees(size, size, density);
+      sum += test.run();
+    }
+    return (sum / n);
+  }
 
 
     public static void main(String[]args){
@@ -106,11 +116,18 @@ public class BurnTrees{
       BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
 
 
-      int ans = b.animate(DELAY);//animate all screens
-      System.out.println(ans);//print the final answer
+      // int ans = b.animate(DELAY);//animate all screens
+      // System.out.println(ans);//print the final answer
 
-      //int ans = b.outputAll();//print all screens one after another
-      //System.out.println(ans);//print the final answer
+      // int ans = b.outputAll();//print all screens one after another
+      // System.out.println(ans);//print the final answer
+
+      // System.out.println(b.run()); // print the answer BUT Not the board
+
+
+
+      System.out.println(averageOfNRuns(100, WIDTH, DENSITY)); // print the average ticks of N runs, Board is NOT printed
+    
     }
 
 
