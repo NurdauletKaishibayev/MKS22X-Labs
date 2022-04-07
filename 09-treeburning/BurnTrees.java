@@ -124,10 +124,13 @@ public class BurnTrees{
 
       // System.out.println(b.run()); // print the answer BUT Not the board
 
-
-
-      System.out.println(averageOfNRuns(100, WIDTH, DENSITY)); // print the average ticks of N runs, Board is NOT printed
-    
+      // Prints the averages for 100 runs with density increments of 0.05
+      for (double i = 0; i <= 1.0005; i += 0.05) {
+        double den = i;
+        System.out.println("Average for 100 runs, size 20x20, for density = " + i);
+        System.out.println(averageOfNRuns(100, WIDTH, i));
+      }
+      // System.out.println(averageOfNRuns(100, WIDTH, DENSITY)); // print the average ticks of N runs, Board is NOT printed
     }
 
 
