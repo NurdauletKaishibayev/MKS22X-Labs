@@ -125,11 +125,18 @@ public class BurnTrees{
       // System.out.println(b.run()); // print the answer BUT Not the board
 
       // Prints the averages for 100 runs with density increments of 0.05
-      for (double i = 0; i <= 1.0005; i += 0.05) {
-        double den = i;
-        System.out.println("Average for 100 runs, size 20x20, for density = " + i);
-        System.out.println(averageOfNRuns(100, WIDTH, i));
+
+      System.out.println("\nBoard Size: 100x100 w/ 100 repetions");
+      System.out.println("-------------------");
+      System.out.println("| Density | Runs  |");
+      System.out.println("|-----------------|");
+      for (double i = 0.05; i <= 1.000; i += 0.05) {
+        double runs = averageOfNRuns(100, 100, i);
+        System.out.println("| " + (int)(i*100) + "%"+ "   | " + runs + "   |");
+        // System.out.println("Average for 100 runs, size 20x20, for density = " + i);
+
       }
+      System.out.println("--------------------");
       // System.out.println(averageOfNRuns(100, WIDTH, DENSITY)); // print the average ticks of N runs, Board is NOT printed
     }
 
