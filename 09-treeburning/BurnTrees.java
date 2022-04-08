@@ -126,9 +126,11 @@ public class BurnTrees{
 
       // Prints the averages for 100 runs with density increments of 0.05
 
+
+
       System.out.println("\nBoard Size: 100x100 w/ 100 repetions");
       System.out.println("-------------------");
-      System.out.println("| Density | Runs  |");
+      System.out.println("| Density | Burn time  |");
       System.out.println("|-----------------|");
       for (double i = 0.05; i <= 1.000; i += 0.05) {
         double runs = averageOfNRuns(100, 100, i);
@@ -138,7 +140,38 @@ public class BurnTrees{
       }
       System.out.println("--------------------");
       // System.out.println(averageOfNRuns(100, WIDTH, DENSITY)); // print the average ticks of N runs, Board is NOT printed
+
+      /** SECOND TABLE **/
+      System.out.println("\n\nBoard Size: 100x100 w/ 100 repetions");
+      System.out.println("-------------------");
+      System.out.println("| Density | Burn time  |");
+      System.out.println("|-----------------|");
+      for (double i = 0.55; i <= 0.66; i += 0.01) {
+        double runs = averageOfNRuns(100, 100, i);
+        System.out.println("| " + (int)(i*100) + "%"+ "   | " + runs + "   |");
+        // System.out.println("Average for 100 runs, size 20x20, for density = " + i);
+
+      }
+      System.out.println("--------------------");
+
+
+
+
+      // System.out.println("\n\nBoard Size: 100x100 w/ 100 repetions");
+      // System.out.println("-------------------");
+      // System.out.println("| Density | Burn time  |");
+      // System.out.println("|-----------------|");
+      // for (double i = 0.00; i <= 1.000; i += 0.01) {
+      //   double runs = averageOfNRuns(100, 25, i);
+      //   System.out.println("| " + (int)(i*100) + "%"+ "   | " + runs + "   |");
+      //   // System.out.println("Average for 100 runs, size 20x20, for density = " + i);
+      //
+      // }
+      // System.out.println("--------------------");
     }
+
+
+
 
 
 
