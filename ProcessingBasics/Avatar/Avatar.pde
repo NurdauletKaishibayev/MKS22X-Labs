@@ -11,6 +11,7 @@ void draw(){
          x = change(x);
          y = change(y);
          avatar(x,y);
+         avatar(mouseX, mouseY);
 }
 int change(int value){
   /**
@@ -24,14 +25,22 @@ int change(int value){
    case 1:
      return (int) random(height);
    case 2:
-     return value + (int) random(-2, 2);
+     return value + int(random(-2, 2));
    case 3:
      if (value == height) {
-       value = 0;
+       return 0;
      }
      return value + 1;
    default:
      return width/2;
+  }
+}
+
+void mouseClicked() {
+  if (MODE == 3) {
+    MODE = 1;
+  } else {
+    MODE++;
   }
 }
 
