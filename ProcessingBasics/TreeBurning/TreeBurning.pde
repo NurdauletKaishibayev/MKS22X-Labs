@@ -16,7 +16,7 @@
      *At this point you have initialized width, height,ROWS,COLS. You can change these values
      *to alter the screen size, but you cannot just change one value!
      *What must be true about the ratio of these values in order for this simulation to display squares?
-     *ANSWER HERE:
+     *ANSWER HERE: The ratio of width:COLS and height:ROWS should remain the same
      */
 
     DENSITY = .61;
