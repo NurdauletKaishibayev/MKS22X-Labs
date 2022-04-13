@@ -87,7 +87,12 @@
      *2. Decide how to fill them in using the String[] parameter
      *   Colors: Fire = RED, Tree = GREEN, SPACE = WHITE, ASH = GREY
      */
-
+    for (int i = 0; i < width; i+= SQUARESIZE) {
+      for (int j = 0; j < height; j+= SQUARESIZE) {
+        fill(0, 255, 17);
+        square(i,j,SQUARESIZE);
+      }
+    }
   }
 
 
