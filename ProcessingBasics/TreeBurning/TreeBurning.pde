@@ -87,14 +87,28 @@
      *2. Decide how to fill them in using the String[] parameter
      *   Colors: Fire = RED, Tree = GREEN, SPACE = WHITE, ASH = GREY
      */
-    for (int i = 0; i < width; i+= SQUARESIZE) {
-      for (int j = 0; j < height; j+= SQUARESIZE) {
-        fill(0, 255, 17);
-        square(i,j,SQUARESIZE);
+    for (int i = 0; i < ROWS ;i++) {
+      for (int j = 0; j < COLS; j++) {
+        switch (lines[i].charAt(j)) {
+          case 'w':
+            fill(255,0,0);
+            break;
+          case ' ':
+            fill(255);
+            break;
+          case '.':
+            fill(198, 204, 198);
+            break;
+          default:
+            fill(0,255,17);
+        }
+          
+        square(j*SQUARESIZE,i*SQUARESIZE,SQUARESIZE);
       }
     }
+ 
   }
-
+  
 
   /***THIS IS YOUR PRIOR LAB (only a subset of methods)***/
 
