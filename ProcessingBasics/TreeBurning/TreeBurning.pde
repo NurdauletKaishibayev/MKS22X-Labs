@@ -37,7 +37,7 @@
     //frameCount tells you how many times the draw method was called.
     if (frameCount % 10 == 0) {
       treeSim.tick();
-      //println("Testing code:"+ frameCount);
+      println("Testing code:"+ frameCount);
     }
     /**question 3 *********************************
      *Here we only call tick() when the frameCount % 10 == 0.
@@ -45,7 +45,7 @@
      *(The print statement is NOT part of the simulation, it is to help you answer this question)
      *hint:  If you cannot figure this out analytically, experiment to test
      *       the difference by changing the code. A print statement is commented out to facilitate testing.
-     *ANSWER HERE:
+     *ANSWER HERE: The reason why we do this is for tick delay. If we called the method every 1 frame, it would be too fast. If we called it every 100, it would be too slow. Thus, 10 is a reasonable number for delay as it would make the simulation smooth (not choppy like 100, not instantenous like or 0)
      */
 
     String[]lines = treeSim.toString().split("\n");
