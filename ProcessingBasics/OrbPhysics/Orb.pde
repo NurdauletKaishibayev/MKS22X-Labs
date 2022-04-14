@@ -30,7 +30,10 @@ public class Orb{
     //PART 2
     //change the x based on the xSpeed
     //change the y based on the ySpeed
-
+     x += xSpeed;
+     y += ySpeed;
+    
+    
     //PART 3
     //Change the speed when you collide with the end of the screen (all 4 sides)
 
