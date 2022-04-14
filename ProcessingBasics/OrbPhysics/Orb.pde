@@ -59,6 +59,8 @@ public class Orb{
     //Add a small adjustment for gravity. Gravity is a ySpeed acceleration...
     //You don't need a variable for this if every object experiences the same
     //gravitational constant (find the value that looks nice experimentally, 9.8 will not work well).
-
+    if (y + radius < height) {
+      ySpeed += 0.1;
+    }
   }
 }
