@@ -60,7 +60,14 @@ public class Orb{
     //You don't need a variable for this if every object experiences the same
     //gravitational constant (find the value that looks nice experimentally, 9.8 will not work well).
     if (y + radius < height) {
-      ySpeed += 0.1;
+      //ySpeed += 0.1;
     }
+  }
+  
+  void attract(Orb other) {
+    float distance = dist(x, y, other.x, other.y);
+    int G = 10;
+    xSpeed += G * (other.x - x) / sq(distance);
+    ySpeed += G * (other.y - y) / sq(distance);
   }
 }

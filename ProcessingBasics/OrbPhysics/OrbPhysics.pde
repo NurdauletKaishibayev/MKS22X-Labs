@@ -1,7 +1,9 @@
 ArrayList<Orb>orbList;
+Orb orby;
 void setup() {
   size(1000, 700);
   orbList = new ArrayList<Orb>();
+  orby = new Orb(width/2, height/2, 0, 0, 10);
 }
 void mouseClicked() {
   //add a new Orb to the orbList, constructed as follows:
@@ -16,9 +18,11 @@ void mouseClicked() {
 }
 void draw() {
   background(255);
+  orby.display();
   for (Orb o : orbList) {
     o.move();
     o.display();
+    o.attract(orby);
   }
   fill(0);
   text(frameRate,20,20);
