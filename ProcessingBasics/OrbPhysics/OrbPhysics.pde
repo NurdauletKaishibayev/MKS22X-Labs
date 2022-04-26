@@ -1,7 +1,7 @@
 ArrayList<Orb>orbList;
 Orb orby;
 void setup() {
-  size(1000, 700);
+  size(1000, 800);
   orbList = new ArrayList<Orb>();
   orby = new Orb(width/2, height/2, 0, 0, 10);
 }
@@ -10,9 +10,9 @@ void mouseClicked() {
   //The x and y positions are the same as the mouse
   //the radius should be between in the range [20.0,70.0)
   //the xSpeed and ySpeed should be in the range [-3.0,3.0)
-  float radius = random(20.0,70.0);
-  float xSpeed = random(-3.0, 3.0);
-  float ySpeed = random(-3.0, 3.0);
+  float radius = 20.0;
+  float xSpeed = 5;
+  float ySpeed = 0;
   Orb orb = new Orb(mouseX, mouseY, xSpeed, ySpeed, radius);
   orbList.add(orb);
 }
