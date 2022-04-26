@@ -11,7 +11,7 @@ public class Orb {
     ySpeed = ySpeed_;
     radius = radius_;
     //random color... why not.
-    c = color(random(255), random(255), random(255));
+    c = color(random(255), random(255), random(255),175);
   }
 
 
@@ -23,6 +23,7 @@ public class Orb {
     //radius is NOT one of the parameters of ellipse by default.
     fill(c);
     circle(x, y, radius*2);
+    line(x,y, x + 5*xSpeed, y + 5*ySpeed);
   }
 
   void move() {
