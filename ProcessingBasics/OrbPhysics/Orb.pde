@@ -11,7 +11,7 @@ public class Orb {
     ySpeed = ySpeed_;
     radius = radius_;
     //random color... why not.
-    c = color(random(255), random(255), random(255),175);
+    c = color(random(255), random(255), random(255), 175);
   }
 
 
@@ -23,7 +23,7 @@ public class Orb {
     //radius is NOT one of the parameters of ellipse by default.
     fill(c);
     circle(x, y, radius*2);
-    line(x,y, x + 5*xSpeed, y + 5*ySpeed);
+    line(x, y, x + 5*xSpeed, y + 5*ySpeed);
   }
 
   void move() {
@@ -40,15 +40,15 @@ public class Orb {
       if (x + radius >= width) {
         xSpeed = -xSpeed;
       }
-  
+
       if (y + radius >= height) {
         ySpeed = -ySpeed;
       }
-  
+
       if (x - radius <= 0) {
         xSpeed = -xSpeed;
       }
-  
+
       if (y - radius <= 0) {
         ySpeed = -ySpeed;
       }
@@ -59,15 +59,28 @@ public class Orb {
     //Add a small adjustment for gravity. Gravity is a ySpeed acceleration...
     //You don't need a variable for this if every object experiences the same
     //gravitational constant (find the value that looks nice experimentally, 9.8 will not work well).
-    if (y + radius < height) {
-      ySpeed += gravity;
+    if (gravityMode) {
+      if (y + radius < height) {
+        ySpeed += gravity;
+      }
     }
   }
-  
+
   void attract(Orb other) {
     float distance = dist(x, y, other.x, other.y);
     int G = 20;
     xSpeed += G * (other.x - x) / sq(distance);
     ySpeed += G * (other.y - y) / sq(distance);
+  }
+
+  void attractSpring(Orb other) {
+    float distance = dist(x, y, other.x, other.y);
+    float force = (distance - SPRING_LENGTH) * SPRING_CONSTANT;
+    // X Axis
+    xSpeed += force * ( (other.x-x) / distance);
+    xSpeed *= SPRING_DAMPEN;
+    // Y axis
+    ySpeed += force * ( (other.y-y) / distance);
+    ySpeed *= SPRING_DAMPEN;
   }
 }
