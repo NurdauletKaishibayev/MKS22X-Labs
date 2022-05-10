@@ -26,7 +26,10 @@ public class OrbNode {
     //If next or previous exist, draw lines to them! (aim for slightly off center)
     /*you write this part*/
     if (next != null) {
-      
+      line(x,y,next.x+1,next.y+1);
+    }
+    if (prev != null) {
+      line(x,y,prev.x+1,prev.y+1);
     }
     
   }

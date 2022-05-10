@@ -15,22 +15,33 @@ public class OrbList {
    */
   void add(OrbNode orb) {
     //insert orb at the end of the list before the last node.
+    
   }
 
-  /**
-   *complete this method
-   *process all nodes by running move.
-   */
-  void processAll() {
-    OrbNode current = first;
-    //advance current to next until it is null, move() each of the nodes
-  }
+    /* Complete this method
+     *process all nodes by running move.
+     */
+    void processAll() {
+      OrbNode current = first;
+      current.move();
+      //advance current to next until it is null, move() each of the nodes
+      while (current.next != null) {
+        current = current.next;
+        current.move();
+      }
+    }
+    
   /**
    *complete this method
    *Display all nodes by running their display().
    */
   void display() {
     OrbNode current = first;
+    current.display();
     //advance current to next until it is null, display() each of the nodes
+    while (current.next != null) {
+      current = current.next;
+      current.display();
+    }
   }
 }
