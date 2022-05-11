@@ -1,17 +1,23 @@
 
-final static int SPRING = 2;
+final static int Add = 0;
 static float SPRING_LENGTH = 50;
 static float SPRING_DAMPEN = 0.990;
 static float SPRING_CONSTANT = 0.015;
 static float GRAVITY = 0.35;
-final static int MODE = SPRING;
+static int MODE = Add;
+final static int Insert = 1;
+final static int Delete = 2;
+final static int SPACE = 32;
+
 OrbList orbs;
 void setup() {
   size(1000, 800);
   orbs = new OrbList();
 }
 void mouseClicked() {
-  orbs.add(new OrbNode(mouseX, mouseY, 0, 0, 30));
+  if (MODE == Add) {
+    orbs.add(new OrbNode(mouseX, mouseY, 0, 0, 30));
+  }
 }
 
 void keyPressed() {
@@ -39,6 +45,18 @@ void keyPressed() {
   if (key == '8') {
     GRAVITY -= 0.05;
   }
+  
+  if (key == SPACE) {
+    if (MODE == Add) {
+      MODE = Insert;
+    }
+    else if (MODE == Insert) {
+      MODE = Delete;
+    }
+    else {
+      MODE = Add;
+    }
+  }
 }
 
 void draw() {
@@ -49,4 +67,5 @@ void draw() {
   text("SPRING_DAMPEN: " + SPRING_DAMPEN, 10, 40);
   text("SPRING_LENGTH: " + SPRING_LENGTH, 10, 60);
   text("GRAVITY: " + GRAVITY, 10, 80);
+  text("MODE: " + MODE, 10, 100);
 }

@@ -47,4 +47,29 @@ public class OrbList {
       current.display();
     }
   }
+  
+  /**
+  * Insert
+  * > creates a node at mouse position 
+  */
+  void add(int xcor, OrbNode toBeAdded) {
+    
+  }
+  
+  /**
+  * Delete
+  * > Delete Node at the mouse
+  */
+  void delete(OrbNode target) {
+    
+  }
+  
+  /**
+  * getNodeAt
+  * > Return the first node that x and y are inside the circle
+  * > return null if no node is found at the xy coordinate
+  */
+  void getNodeAt(int x, int y) {
+    
+  }
 }
