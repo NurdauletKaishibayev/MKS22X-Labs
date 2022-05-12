@@ -51,6 +51,10 @@ void keyPressed() {
   if (key == '8') {
     GRAVITY -= 0.05;
   }
+  
+  if (key == 'r') {
+    orbs.reset();
+  }
 
   if (key == SPACE) {
     if (MODE == Add) {
@@ -67,6 +71,7 @@ void draw() {
   background(255);
   orbs.processAll();
   orbs.display();
+  textSize(12);
   text("SPRING_CONSTANT: " + SPRING_CONSTANT, 10, 20);
   text("SPRING_DAMPEN: " + SPRING_DAMPEN, 10, 40);
   text("SPRING_LENGTH: " + SPRING_LENGTH, 10, 60);

@@ -87,4 +87,12 @@ public class OrbList {
     }
     return null;
   }
+  
+  /**
+  * RESETS THE LIST
+  */
+  void reset() {
+    first.next = last;
+    last.prev = first;
+  }
 }
