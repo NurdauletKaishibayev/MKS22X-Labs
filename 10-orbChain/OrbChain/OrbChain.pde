@@ -17,6 +17,12 @@ void setup() {
 void mouseClicked() {
   if (MODE == Add) {
     orbs.add(new OrbNode(mouseX, mouseY, 0, 0, 30));
+  } else if (MODE == Insert) {
+    orbs.add(mouseX, new OrbNode(mouseX, mouseY, 0, 0, 30));
+  } else {
+    if (orbs.getNodeAt(mouseX, mouseY) != null) {
+      orbs.delete(orbs.getNodeAt(mouseX, mouseY));
+    }
   }
 }
 
@@ -45,15 +51,13 @@ void keyPressed() {
   if (key == '8') {
     GRAVITY -= 0.05;
   }
-  
+
   if (key == SPACE) {
     if (MODE == Add) {
       MODE = Insert;
-    }
-    else if (MODE == Insert) {
+    } else if (MODE == Insert) {
       MODE = Delete;
-    }
-    else {
+    } else {
       MODE = Add;
     }
   }
